@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Information Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="card">
+    <h1>Employee Information Form</h1>
+
+    <form id="employeeForm">
+      <!-- Section 1: Personal Information -->
+      <section class="form-section">
+        <h2 class="section-header">Personal Information</h2>
+        <div class="form-grid">
+          <div class="input-group" id="group-aadhaarSearch">
+            <label for="input-aadhaarSearch">Aadhaar Search option</label>
+            <div class="input-with-action">
+              <input type="text" id="input-aadhaarSearch" name="aadhaarSearch" value=""
+                placeholder="Search by Aadhaar...">
+              <button type="button" class="action-button" id="btn-aadhaarSearch">Search</button>
+            </div>
+            <span class="error-message" id="error-aadhaarSearch"></span>
+          </div>
+          <div class="input-group" id="group-aadhaarNumber">
+            <label for="input-aadhaarNumber">Aadhaar Number *</label>
+            <input type="text" id="input-aadhaarNumber" name="aadhaarNumber" value="" required>
+            <span class="error-message" id="error-aadhaarNumber"></span>
+          </div>
+          <div class="input-group" id="group-cfmsId">
+            <label for="input-cfmsId">CFMS ID *</label>
+            <input type="text" id="input-cfmsId" name="cfmsId" value="" required>
+            <span class="error-message" id="error-cfmsId"></span>
+          </div>
+          <div class="input-group" id="group-title">
+            <label for="input-title">Title *</label>
+            <select id="input-title" name="title" required>
+              <option value="" disabled selected>Select Title</option>
+              <option value="Mr">Mr</option>
+              <option value="Mrs">Mrs</option>
+              <option value="Ms">Ms</option>
+              <option value="Dr">Dr</option>
+              <option value="Prof">Prof</option>
+            </select>
+            <span class="error-message" id="error-title"></span>
+          </div>
+          <div class="input-group" id="group-name">
+            <label for="input-name">Name *</label>
+            <input type="text" id="input-name" name="name" value="" required>
+            <span class="error-message" id="error-name"></span>
+          </div>
+          <div class="input-group" id="group-fatherName">
+            <label for="input-fatherName">Father Name *</label>
+            <input type="text" id="input-fatherName" name="fatherName" value="" required>
+            <span class="error-message" id="error-fatherName"></span>
+          </div>
+          <div class="input-group" id="group-dob">
+            <label for="input-dob">Date of Birth (MM/DD/YYYY) *</label>
+            <input type="date" id="input-dob" name="dob" value="" required>
+            <span class="error-message" id="error-dob"></span>
+          </div>
+          <div class="input-group" id="group-joiningDate">
+            <label for="input-joiningDate">Date of Joining (MM/DD/YYYY) *</label>
+            <input type="date" id="input-joiningDate" name="joiningDate" value="" required>
+            <span class="error-message" id="error-joiningDate"></span>
+          </div>
+          <div class="input-group" id="group-gender">
+            <label for="input-gender">Gender *</label>
+            <select id="input-gender" name="gender" required>
+              <option value="" disabled selected>Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+            <span class="error-message" id="error-gender"></span>
+          </div>
+          <div class="input-group" id="group-maritalStatus">
+            <label for="input-maritalStatus">Marital Status</label>
+            <select id="input-maritalStatus" name="maritalStatus">
+              <option value="" disabled selected>Select Marital Status</option>
+              <option value="single">Single</option>
+              <option value="married">Married</option>
+              <option value="widow">Widow</option>
+              <option value="divorced">Divorced</option>
+            </select>
+            <span class="error-message" id="error-maritalStatus"></span>
+          </div>
+          <div class="input-group" id="group-spouseName" style="display: none;">
+            <label for="input-spouseName">Spouse Name</label>
+            <input type="text" id="input-spouseName" name="spouseName" value="">
+            <span class="error-message" id="error-spouseName"></span>
+          </div>
+          <div class="input-group" id="group-caste">
+            <label for="input-caste">Caste</label>
+            <select id="input-caste" name="caste">
+              <option value="" disabled selected>Select Caste</option>
+              <option value="oc">OC</option>
+              <option value="bc_a">BC-A</option>
+              <option value="bc_b">BC-B</option>
+              <option value="bc_c">BC-C</option>
+              <option value="bc_d">BC-D</option>
+              <option value="bc_e">BC-E</option>
+              <option value="sc">SC</option>
+              <option value="st">ST</option>
+            </select>
+            <span class="error-message" id="error-caste"></span>
+          </div>
+          <div class="input-group" id="group-religion">
+            <label for="input-religion">Religion</label>
+            <select id="input-religion" name="religion">
+              <option value="" disabled selected>Select Religion</option>
+              <option value="hindu">Hindu</option>
+              <option value="muslim">Muslim</option>
+              <option value="christian">Christian</option>
+              <option value="sikh">Sikh</option>
+              <option value="buddhist">Buddhist</option>
+              <option value="jain">Jain</option>
+              <option value="others">Others</option>
+            </select>
+            <span class="error-message" id="error-religion"></span>
+          </div>
+          <div class="input-group" id="group-highestEducation">
+            <label for="input-highestEducation">Highest Education Qualification</label>
+            <input list="list-highestEducation" id="input-highestEducation" name="highestEducation"
+              placeholder="Type to search...">
+            <datalist id="list-highestEducation">
+              <option value="Below SSC"></option>
+              <option value="SSC"></option>
+              <option value="HSC"></option>
+              <option value="Graduation"></option>
+              <option value="Masters/Post Graduate"></option>
+              <option value="Professional(CA,CS,CMA,ect…)"></option>
+              <option value="Diploma"></option>
+              <option value="Graduation"></option>
+              <option value="B.Ed"></option>
+              <option value="post Graduation"></option>
+              <option value="M.Phil"></option>
+              <option value="M.Ed"></option>
+              <option value="T.T.C"></option>
+              <option value="Ph.D"></option>
+              <option value="LLB/BL"></option>
+              <option value="Technical Qualification"></option>
+              <option value="B.P.Ed"></option>
+              <option value="M.P.Ed"></option>
+              <option value="U.G.D.P.Ed"></option>
+              <option value="Others"></option>
+
+            </datalist>
+            <span class="error-message" id="error-highestEducation"></span>
+          </div>
+          <div class="input-group" id="group-isPhysicalChallenged">
+            <label for="input-isPhysicalChallenged">Physical challenged category</label>
+            <select id="input-isPhysicalChallenged" name="isPhysicalChallenged">
+              <option value="" disabled selected>Select Physical challenged category</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+            <span class="error-message" id="error-isPhysicalChallenged"></span>
+          </div>
+          <div class="input-group" id="group-physicalChallengedPercentage" style="display: none;">
+            <label for="input-physicalChallengedPercentage">Percentage (%)</label>
+            <select id="input-physicalChallengedPercentage" name="physicalChallengedPercentage">
+              <option value="" disabled selected>Select percentage...</option>
+            </select>
+            <span class="error-message" id="error-physicalChallengedPercentage"></span>
+          </div>
+          <div class="input-group" id="group-panNumber">
+            <label for="input-panNumber">PAN Number *</label>
+            <input type="text" id="input-panNumber" name="panNumber" value="" required>
+            <span class="error-message" id="error-panNumber"></span>
+          </div>
+          <div class="input-group" id="group-mobileNumber">
+            <label for="input-mobileNumber">Mobile Number *</label>
+            <input type="tel" id="input-mobileNumber" name="mobileNumber" value="" required>
+            <span class="error-message" id="error-mobileNumber"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Bank Details -->
+      <section class="form-section">
+        <h2 class="section-header">Bank Details</h2>
+        <div class="form-grid">
+          <div class="input-group" id="group-bankAccountNumber">
+            <label for="input-bankAccountNumber">Bank Account Number *</label>
+            <input type="text" id="input-bankAccountNumber" name="bankAccountNumber" value="" required>
+            <span class="error-message" id="error-bankAccountNumber"></span>
+          </div>
+          <div class="input-group" id="group-bankIfscCode">
+            <label for="input-bankIfscCode">Bank IFSC Code *</label>
+            <input type="text" id="input-bankIfscCode" name="bankIfscCode" value="" required>
+            <span class="error-message" id="error-bankIfscCode"></span>
+          </div>
+          <div class="input-group" id="group-bankAndBranch">
+            <label for="input-bankAndBranch">Bank and Branch *</label>
+            <input type="text" id="input-bankAndBranch" name="bankAndBranch" value="" required>
+            <span class="error-message" id="error-bankAndBranch"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Office Details -->
+      <section class="form-section">
+        <h2 class="section-header">Office Details</h2>
+        <div class="form-grid">
+          <div class="input-group" id="group-institutionName">
+            <label for="input-institutionName">Org Unit / Office Name *</label>
+            <input list="list-institutionName" id="input-institutionName" name="institutionName"
+              placeholder="Type to search..." required>
+            <datalist id="list-institutionName">
+              <option value="RS(B),Peddamadi"></option>
+              <option value="RS(G),Seethampeta"></option>
+              <option value="MG(G),Seethampeta"></option>
+              <option value="MG(G),Kariguda"></option>
+              <option value="RS(PTG-B),Malli"></option>
+              <option value="RS(B),Seethampeta"></option>
+              <option value="RJC(B),Peddamadi"></option>
+              <option value="RJC(B),Seethampeta"></option>
+              <option value="RJC(G),Seethampeta"></option>
+              <option value="COE(B),Malli"></option>
+              <option value="EMRS(Co-Edu),Bhamini"></option>
+              <option value="EMRS(Co-Edu),Meliaputi"></option>
+              <option value="RS(B),P.Konavalasa"></option>
+              <option value="RS(PTG-Girls),Bhadragiri"></option>
+              <option value="MG(G),Pachipent"></option>
+              <option value="RJC(G),P.Konavalasa"></option>
+              <option value="URJC(G),Kurupam"></option>
+              <option value="RS(B),Bhadragiri"></option>
+              <option value="RS(B),Komarada"></option>
+              <option value="SOE(B),Parvathipuram"></option>
+              <option value="RJC(B),Bhadragiri"></option>
+              <option value="RJC(B),P.Konavalasa"></option>
+              <option value="RJC(G),Bhadragiri"></option>
+              <option value="EMRS(Co-Edu),Anasabhadra"></option>
+              <option value="EMRS(Co-Edu),Kotikapenta"></option>
+              <option value="EMRS(Co-Edu),Kurupam"></option>
+              <option value="EMRS(Co-Edu),GLPuram"></option>
+              <option value="RJC(B),Chintapally"></option>
+              <option value="RS(B),Koyyuru"></option>
+              <option value="RS(B),Peddabayalu"></option>
+              <option value="RS(B),UpperSileru"></option>
+              <option value="RS(G),Paderu"></option>
+              <option value="EMRS(Co-Edu),G.K.Veedhi"></option>
+              <option value="MG-Gomangi"></option>
+              <option value="MG-A.Senivaram"></option>
+              <option value="MG(G),G.Madugula"></option>
+              <option value="RJC(G),G.K.Veedhi"></option>
+              <option value="RS(PTG-B),Araku"></option>
+              <option value="RS(B),G.Madugula"></option>
+              <option value="RS(B),Tummalavalasa"></option>
+              <option value="RS(G),Arakualley"></option>
+              <option value="RS(B),VizagatMarikivalasa"></option>
+              <option value="RJC(B),Araku"></option>
+              <option value="RJC(B),G.Madugula"></option>
+              <option value="RJC(B),Koyyuru"></option>
+              <option value="RJC(B),Peddabayalu"></option>
+              <option value="RJC(G),Arakuvalley"></option>
+              <option value="RJC(G),Paderu"></option>
+              <option value="SOE(G),Vizag"></option>
+              <option value="RS(B),VizagSportsSchool"></option>
+              <option value="EMRS(Co-Edu),Ananthagiri"></option>
+              <option value="EMRS(Co-Edu),Arakuvalley"></option>
+              <option value="EMRS(Co-Edu),Paderu"></option>
+              <option value="EMRS(Co-Edu),Hukumpeta"></option>
+              <option value="EMRS(Co-Edu),Peddabayalu"></option>
+              <option value="EMRS(Co-Edu),G.Madugula"></option>
+              <option value="EMRS(Co-Edu),Koyyuru"></option>
+              <option value="EMRS(Co-Edu),Dumbriguda"></option>
+              <option value="EMRS(Co-Edu),Munchigput"></option>
+              <option value="EMRS(Co-Edu),Chintapalli"></option>
+              <option value="RJC(B),Maredumilli"></option>
+              <option value="RS(B),Addatheegala"></option>
+              <option value="RS(G),Rajavommangi"></option>
+              <option value="EMRS(G),Y.Ramavaram"></option>
+              <option value="URJC(G),Kunavaram"></option>
+              <option value="MG(G),V.R.Puram"></option>
+              <option value="RJC(G),R.C.Varam"></option>
+              <option value="RS(PTG-Boys),Maredumilli"></option>
+              <option value="RS(B),R.C.Varam"></option>
+              <option value="RS(PTG-B),Chintoor"></option>
+              <option value="RS(G),R.C.Varam"></option>
+              <option value="RJC(B),Addateegala"></option>
+              <option value="RJC(B),R.C.Varam"></option>
+              <option value="RJC(B),Chintoor"></option>
+              <option value="RJC(G),Y.Ramavaram"></option>
+              <option value="RJC(G),Rajavommangi"></option>
+              <option value="EMRS(Co-Edu),Maredumilli"></option>
+              <option value="EMRS(Co-Edu),R.C. Varam"></option>
+              <option value="EMRS(Co-Edu),Addatheegala"></option>
+              <option value="EMRS(Co-Edu),Chintoor"></option>
+              <option value="EMRS(Co-Edu),Rajavommangi"></option>
+              <option value="RS(G),Buttayyagudem"></option>
+              <option value="RS(B),Jeelugumilli"></option>
+              <option value="RS(B),K.R.Puram"></option>
+              <option value="RJC(B),Jeelugumilli"></option>
+              <option value="RJC(B),K.R.Puram"></option>
+              <option value="RJC(G),Buttayyagudem"></option>
+              <option value="EMRS(Co-Edu),Buttayagudem"></option>
+              <option value="RS(G),Vissannapeta"></option>
+              <option value="COE(G),Vissannapeta"></option>
+              <option value="HCRS(B),Jaggaiapeta"></option>
+              <option value="HCRS(B),Vuyyuru"></option>
+              <option value="HCRS(B),Vissannapeta"></option>
+              <option value="HCRS(G),Nandigama"></option>
+              <option value="HCRS(G),Mylavaram"></option>
+              <option value="HCRS(G),Vijayawada at Kondapalli"></option>
+              <option value="MG(G),G.P.Cheruvu"></option>
+              <option value="RS(PTG-Boys),Nagarjunasagar"></option>
+              <option value="HCRS(B),Stuvartpuram"></option>
+              <option value="HCRS(G),Vinukonda"></option>
+              <option value="HCRS(B),Guntur"></option>
+              <option value="HCRS(B),Chilakaluripeta"></option>
+              <option value="HCRS(B),Repalle"></option>
+              <option value="HCRS(B),PonnuruatTenali"></option>
+              <option value="HCRS(G),Narsaraopet"></option>
+              <option value="HCRS(B),Rentachintala"></option>
+              <option value="HCRS(G),Piduguralla"></option>
+              <option value="HCRS(B),Vinukonda"></option>
+              <option value="HCRS(G),Karampudi"></option>
+              <option value="HCRS(B),Piduguralla"></option>
+              <option value="HCRS(G),Tenali"></option>
+              <option value="HCRS(B),Narasaraopeta"></option>
+              <option value="HCRS(B),Karampudi"></option>
+              <option value="HCRS(B),Bellamkonda"></option>
+              <option value="HCRS(B),Addanki"></option>
+              <option value="HCRS(B),Karedu"></option>
+              <option value="HCRS(B),Parchur"></option>
+              <option value="HCRS(B),Chirala"></option>
+              <option value="HCRS(B),Dornala"></option>
+              <option value="HCRS(G),Giddaluru"></option>
+              <option value="HCRS(G),Chirala"></option>
+              <option value="HCRS(G),Dornala"></option>
+              <option value="MG(G),Y.Palem"></option>
+              <option value="RS(PTG-Boys),Y.Palem"></option>
+              <option value="RJC(B),Y.Palem"></option>
+              <option value="EMRS(Co-Edu),Dornala"></option>
+              <option value="HCRS(B),Y.G.Palem"></option>
+              <option value="HCRS(G),Karedu"></option>
+              <option value="HCRS(B),Kanigiri"></option>
+              <option value="HCRS(G),Markapur"></option>
+              <option value="HCRS(B),Giddaluru"></option>
+              <option value="HCRS(B),Chimakurthy"></option>
+              <option value="HCRS(B),Kodavaluru"></option>
+              <option value="EMRS(Co-Edu),Kodavaluru"></option>
+              <option value="MG(G),Gudur"></option>
+              <option value="RS(PTG-B),Chittedu"></option>
+              <option value="RS(PTG-B),Somasila"></option>
+              <option value="RJC(B),Chittedu"></option>
+              <option value="HCRS(G),Nellore"></option>
+              <option value="HCRS(G),Gudur"></option>
+              <option value="HCRS(B),Naidupeta at Gottiprolu"></option>
+              <option value="HCRS(G),Kota"></option>
+              <option value="HCRS(B),Kavali"></option>
+              <option value="HCRS(G),Rapur"></option>
+              <option value="HCRS(B),Sarvepalli at Nellore"></option>
+              <option value="HCRS(B),B.R.Palem"></option>
+              <option value="HCRS(G),Venkatagiri"></option>
+              <option value="HCRS(B),Indukurpet"></option>
+              <option value="HCRS(G),Kavali"></option>
+              <option value="HCRS(B),Guduru at Chennuru"></option>
+              <option value="EMRS(Co-Edu),Ojili"></option>
+              <option value="URJC(G),Srikalahasthi"></option>
+              <option value="RS(B),Renigunta"></option>
+              <option value="RS(G),K.V.Palli"></option>
+              <option value="SOE(G),Srikalahasthi"></option>
+              <option value="HCRS(G),Chittoor"></option>
+              <option value="HCRS(G),Tirupathi"></option>
+              <option value="HCRS(B),Srikalahasthi"></option>
+              <option value="HCRS(B),Madanapalli"></option>
+              <option value="HCRS(B),Puttur"></option>
+              <option value="HCRS(B),Bangarupalem"></option>
+              <option value="HCRS(B),Ramakuppam"></option>
+              <option value="HCRS(B),Pileru"></option>
+              <option value="HCRS(B),Tambalapalle"></option>
+              <option value="HCRS(G),Punganur"></option>
+              <option value="EMRS(Co-Edu),B.N.Khandriga"></option>
+              <option value="MG(G),RailwayKoduru"></option>
+              <option value="RS(G),Rayachoti"></option>
+              <option value="HCRS(B),T.Sundupalli"></option>
+              <option value="HCRS(B),Porumamilla"></option>
+              <option value="HCRS(B),Rayachoti"></option>
+              <option value="HCRS(B),Pulivendala"></option>
+              <option value="HCRS(B),Kadapa"></option>
+              <option value="HCRS(G),Kadapa"></option>
+              <option value="HCRS(B),Mydukuru"></option>
+              <option value="MG(G),N.R.kunta"></option>
+              <option value="RJC(G),Mahanandi"></option>
+              <option value="RS(B),Srisailam"></option>
+              <option value="RS(PTG-G),Mahanandi"></option>
+              <option value="SOE(B),Srisailam"></option>
+              <option value="RJC(B),Srisailam"></option>
+              <option value="HCRS(G),Bairluty"></option>
+              <option value="HCRS(B),Panyam"></option>
+              <option value="HCRS(G),Aluru"></option>
+              <option value="HCRS(B),Allagadda"></option>
+              <option value="HCRS(G),Kurnool"></option>
+              <option value="HCRS(B),Tuggali"></option>
+              <option value="URJC(B),Golladoddi"></option>
+              <option value="RS(G),Thanakallu"></option>
+              <option value="COE(G),Thanakallu"></option>
+              <option value="HCRS(G),Anantapur"></option>
+              <option value="HCRS(G),Kadiri"></option>
+              <option value="HCRS(B),Ragulapadu"></option>
+              <option value="HCRS(G),Gorantla"></option>
+              <option value="HCRS(G),Penugonda"></option>
+              <option value="HCRS(B),Kalyanadurgam"></option>
+              <option value="HCRS(B),B.K.Samudram"></option>
+              <option value="HCRS(B),Kadiri"></option>
+              <option value="HCRS(G),Uravakonda"></option>
+            </datalist>
+            <span class="error-message" id="error-institutionName"></span>
+          </div>
+          <div class="input-group" id="group-postCategory">
+            <label for="input-postCategory">Post Category *</label>
+            <input list="list-postCategory" id="input-postCategory" name="postCategory" placeholder="Type to search..."
+              required>
+            <datalist id="list-postCategory">
+              <option value="Regular"></option>
+              <option value="Contract"></option>
+              <option value="Outsourcing"></option>
+              <option value="Part-time"></option>
+              <option value="Full-time"></option>
+              <option value="Daily Wages"></option>
+              <option value="Nominated Post"></option>
+              <option value="Consultant"></option>
+            </datalist>
+          </div>
+          <div class="input-group" id="group-position">
+            <label for="input-position">Position *</label>
+            <input list="list-position" id="input-position" name="position" placeholder="Type to search..." required>
+            <datalist id="list-position">
+              <option value="Teaching"></option>
+              <option value="Non-Teaching"></option>
+            </datalist>
+          </div>
+          <div class="input-group" id="group-designation">
+            <label for="input-designation">Designation *</label>
+            <select id="input-designation" name="designation" required disabled>
+              <option value="" disabled selected>Select Position first</option>
+            </select>
+            <span class="error-message" id="error-designation"></span>
+          </div>
+          <div class="input-group" id="group-subject" style="display: none;">
+            <label for="input-subject">Subject *</label>
+            <select id="input-subject" name="subject">
+              <option value="" disabled selected>Select Subject</option>
+            </select>
+            <span class="error-message" id="error-subject"></span>
+          </div>
+          <div class="input-group" id="group-modeOfRecruitment">
+            <label for="input-modeOfRecruitment">Mode of Recruitment *</label>
+            <input list="list-modeOfRecruitment" id="input-modeOfRecruitment" name="modeOfRecruitment"
+              placeholder="Type to search..." required>
+            <datalist id="list-modeOfRecruitment">
+              <option value="Direct Recruitment"></option>
+              <option value="Promotion"></option>
+              <option value="Deputation"></option>
+              <option value="Both Direct Recruitment & Promotion"></option>
+              <option value="Both Direct Recruitment & Deputation"></option>
+            </datalist>
+          </div>
+          <div class="input-group" id="group-hoa">
+            <label for="input-hoa">HoA *</label>
+            <input list="list-hoa" id="input-hoa" name="hoa" placeholder="Type to search..." required>
+            <datalist id="list-hoa">
+              <option value="8443001061110002001VN"></option>
+            </datalist>
+            <span class="error-message" id="error-hoa"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Appointment Details -->
+      <section class="form-section">
+        <h2 class="section-header">Appointment Details</h2>
+        <div class="form-grid">
+          <div class="input-group" id="group-appointingAuthority">
+            <label for="input-appointingAuthority">Appointing Authority *</label>
+            <input type="text" id="input-appointingAuthority" name="appointingAuthority"
+              placeholder="Enter Appointing Authority..." required>
+            <span class="error-message" id="error-appointingAuthority"></span>
+          </div>
+          <div class="input-group" id="group-appointingOrderNumber">
+            <label for="input-appointingOrderNumber">Appointing Order Number *</label>
+            <input type="text" id="input-appointingOrderNumber" name="appointingOrderNumber" value="" required>
+            <span class="error-message" id="error-appointingOrderNumber"></span>
+          </div>
+          <div class="input-group" id="group-appointingOrderDate">
+            <label for="input-appointingOrderDate">Appointing Order Date (DD/MM/YYYY) *</label>
+            <input type="date" id="input-appointingOrderDate" name="appointingOrderDate" value="" required>
+            <span class="error-message" id="error-appointingOrderDate"></span>
+          </div>
+        </div>
+      </section>
+      <!-- Section 5: Employment & Pay Details -->
+      <section class="form-section">
+        <h2 class="section-header">Employment & Pay Details</h2>
+        <div class="form-grid">
+          <div class="input-group" id="group-employeeCategory">
+            <label for="input-employeeCategory">Employee Category *</label>
+            <select id="input-employeeCategory" name="employeeCategory" required>
+              <option value="" disabled selected>Select Employee Category</option>
+              <option value="regular">Regular</option>
+              <option value="contract">Contract</option>
+              <option value="outsourcing">Outsourcing</option>
+              <option value="mts_pay">MTS (Pay)</option>
+              <option value="mts_pay_da">MTS (PAY=DA)</option>
+              <option value="guest">Guest</option>
+              <option value="services_outsourcing">Services Outsourcing</option>
+            </select>
+            <span class="error-message" id="error-employeeCategory"></span>
+          </div>
+          <div class="input-group" id="group-typeOfPay" style="display: none;">
+            <label for="input-typeOfPay">Type of Pay *</label>
+            <select id="input-typeOfPay" name="typeOfPay">
+              <option value="" disabled selected>Select Type of Pay</option>
+              <option value="minimum_time_scale">Minimum Time Scale</option>
+              <option value="consolidated_pay">Consolidated Pay</option>
+            </select>
+            <span class="error-message" id="error-typeOfPay"></span>
+          </div>
+          <div class="input-group" id="group-consolidatedPayAmount" style="display: none;">
+            <label for="input-consolidatedPayAmount">Consolidated Pay Amount *</label>
+            <input type="number" id="input-consolidatedPayAmount" name="consolidatedPayAmount" value=""
+              placeholder="Enter amount...">
+            <span class="error-message" id="error-consolidatedPayAmount"></span>
+          </div>
+
+
+          <div class="input-group" id="group-typeOfScale">
+            <label for="input-typeOfScale">Type of Scale *</label>
+            <select id="input-typeOfScale" name="typeOfScale" required>
+              <option value="" disabled selected>Select Type of Scale</option>
+              <option value="state">State</option>
+              <option value="ugc">UGC</option>
+              <option value="judicial">Judicial</option>
+              <option value="aicte">AICTE</option>
+              <option value="ais_7th_pay">AIS (7TH PAY COMMISSION)</option>
+              <option value="others">Others</option>
+            </select>
+            <span class="error-message" id="error-typeOfScale"></span>
+          </div>
+          <div class="input-group" id="group-typeOfScaleOthers" style="display: none;">
+            <label for="input-typeOfScaleOthers">Specify Scale *</label>
+            <input type="text" id="input-typeOfScaleOthers" name="typeOfScaleOthers" placeholder="Enter scale type...">
+            <span class="error-message" id="error-typeOfScaleOthers"></span>
+          </div>
+          <div class="input-group" id="group-prcYear">
+            <label for="input-prcYear">PRC Year *</label>
+            <select id="input-prcYear" name="prcYear" required>
+              <option value="" disabled selected>Select PRC Year</option>
+              <option value="2022">RPS 2010</option>
+              <option value="2015">RPS 2005</option>
+              <option value="2010">RPS 2015</option>
+              <option value="2005">RPS 2022</option>
+            </select>
+            <span class="error-message" id="error-prcYear"></span>
+          </div>
+          <div class="input-group" id="group-scaleOfPay">
+            <label for="input-scaleOfPay">Scale of Pay *</label>
+            <input list="list-scaleOfPay" id="input-scaleOfPay" name="scaleOfPay" placeholder="Type to search..."
+              required>
+            <datalist id="list-scaleOfPay">
+              <option value="20000 - 61960"></option>
+              <option value="20600 - 63660"></option>
+              <option value="21200 - 65360"></option>
+              <option value="22460 - 72810"></option>
+              <option value="28280 - 89720"></option>
+              <option value="23120 - 74770"></option>
+              <option value="23780 - 76730"></option>
+              <option value="25220 - 80910"></option>
+              <option value="27500 - 87480"></option>
+              <option value="29980 - 94500"></option>
+              <option value="32670 - 101970"></option>
+              <option value="34580 - 107210"></option>
+              <option value="35570 - 109910"></option>
+              <option value="37640 - 115500"></option>
+              <option value="48440 - 137220"></option>
+              <option value="38720 - 118390"></option>
+              <option value="40970 - 124380"></option>
+              <option value="44570 - 127480"></option>
+              <option value="45830 - 130580"></option>
+              <option value="54060 - 140540"></option>
+              <option value="57100 - 147760"></option>
+              <option value="61960 - 151370"></option>
+              <option value="65360 - 154980"></option>
+              <option value="70850 - 158880"></option>
+              <option value="101970 - 174790"></option>
+              <option value="76730 - 162780"></option>
+              <option value="80910 - 166680"></option>
+              <option value="87480 - 170580"></option>
+              <option value="94500 - 170580"></option>
+              <option value="112610 - 174790"></option>
+              <option value="124380 - 179000"></option>
+
+            </datalist>
+            <span class="error-message" id="error-scaleOfPay"></span>
+          </div>
+          <div class="input-group" id="group-basicPay">
+            <label for="input-basicPay">Basic Pay *</label>
+            <select id="input-basicPay" name="basicPay" required disabled>
+              <option value="" disabled selected>Select Basic Pay</option>
+            </select>
+            <span class="error-message" id="error-basicPay"></span>
+          </div>
+          <div class="input-group" id="group-dearAllowance">
+            <label for="input-dearAllowance">Dear Allowance (%) *</label>
+            <input list="list-dearAllowance" id="input-dearAllowance" name="dearAllowance"
+              placeholder="Type to search..." required>
+            <datalist id="list-dearAllowance">
+              <option value="0"></option>
+              <option value="5.24"></option>
+              <option value="8.908"></option>
+              <option value="12.052"></option>
+              <option value="15.196"></option>
+              <option value="18.34"></option>
+              <option value="22.008"></option>
+              <option value="24.104"></option>
+              <option value="25.676"></option>
+              <option value="27.248"></option>
+              <option value="30.392"></option>
+              <option value="33.936"></option>
+              <option value="8"></option>
+              <option value="12"></option>
+              <option value="154"></option>
+              <option value="189"></option>
+              <option value="164"></option>
+              <option value="31"></option>
+              <option value="46"></option>
+              <option value="115"></option>
+              <option value="249.63"></option>
+              <option value="232.674"></option>
+              <option value="247.036"></option>
+              <option value="196"></option>
+              <option value="71.904"></option>
+              <option value="118.128"></option>
+              <option value="88.168"></option>
+              <option value="63.344"></option>
+              <option value="71.896"></option>
+              <option value="83.032"></option>
+              <option value="05.00"></option>
+              <option value="193.304"></option>
+              <option value="99.304"></option>
+              <option value="99.296"></option>
+              <option value="102.72"></option>
+              <option value="105.288"></option>
+              <option value="107.856"></option>
+              <option value="112.996"></option>
+              <option value="77.896"></option>
+              <option value="34"></option>
+              <option value="0"></option>
+              <option value="133.764"></option>
+              <option value="31.9"></option>
+              <option value="60.288"></option>
+              <option value="42"></option>
+              <option value="11.6"></option>
+              <option value="38"></option>
+              <option value="7.18"></option>
+              <option value="201.558"></option>
+              <option value="203"></option>
+              <option value="53"></option>
+              <option value="212"></option>
+              <option value="55"></option>
+              <option value="26.39"></option>
+              <option value="50"></option>
+              <option value="239"></option>
+              <option value="37.31"></option>
+              <option value="30.03"></option>
+              <option value="221"></option>
+              <option value="230"></option>
+              <option value="58"></option>
+              <option value="55.54"></option>
+              <option value="33.67"></option>
+            </datalist>
+            <span class="error-message" id="error-dearAllowance"></span>
+          </div>
+          <div class="input-group" id="group-ccaLocation">
+            <label for="input-ccaLocation">CCA Location *</label>
+            <input list="list-ccaLocation" id="input-ccaLocation" name="ccaLocation" placeholder="Type to search..."
+              required>
+            <datalist id="list-ccaLocation">
+              <option value="Anantapur"></option>
+              <option value="Chittoor"></option>
+              <option value="Eluru"></option>
+              <option value="Greater Vijayawada Municipal Corporation"></option>
+              <option value="Greater Visakhapatnam Municipal Corporation"></option>
+              <option value="Guntur"></option>
+              <option value="Kadapa"></option>
+              <option value="Kakinada"></option>
+              <option value="Kurnool"></option>
+              <option value="Nellore"></option>
+              <option value="Not applicable"></option>
+              <option value="Ongole"></option>
+              <option value="Rajahmundry"></option>
+              <option value="Secretariat and HORS Employee"></option>
+              <option value="Tirupati"></option>
+            </datalist>
+            <span class="error-message" id="error-ccaLocation"></span>
+          </div>
+          <div class="input-group" id="group-gpfCpsCategory">
+            <label for="input-gpfCpsCategory">GPF/CPS Category *</label>
+            <input list="list-gpfCpsCategory" id="input-gpfCpsCategory" name="gpfCpsCategory"
+              placeholder="Type to search..." required>
+            <datalist id="list-gpfCpsCategory">
+              <option value="NPS-Govt"></option>
+              <option value="NPS-SAB"></option>
+              <option value="GPF (AG)"></option>
+              <option value="Class-IV GPF"></option>
+              <option value="AIJ GPF"></option>
+              <option value="ZPPF"></option>
+              <option value="GPF Work Charged"></option>
+              <option value="High Court Judges GPF (AG)"></option>
+              <option value="EPF/OWN-PF"></option>
+              <option value="N/A"></option>
+            </datalist>
+            <span class="error-message" id="error-gpfCpsCategory"></span>
+          </div>
+
+          <div class="input-group" id="group-gisSlab">
+            <label for="input-gisSlab">GIS Slab *</label>
+            <input list="list-gisSlab" id="input-gisSlab" name="gisSlab" placeholder="Type to search..." required>
+            <datalist id="list-gisSlab">
+              <option value="D - 15"></option>
+              <option value="H - 20"></option>
+              <option value="C - 30"></option>
+              <option value="G - 50"></option>
+              <option value="B - 60"></option>
+              <option value="F - 75"></option>
+              <option value="E - 100"></option>
+              <option value="A - 120"></option>
+              <option value="0 - Not Applicable"></option>
+            </datalist>
+            <span class="error-message" id="error-gisSlab"></span>
+          </div>
+          <div class="input-group" id="group-hra">
+            <label for="input-hra">HRA (%) *</label>
+            <select id="input-hra" name="hra" required>
+              <option value="" disabled selected>Select HRA (%)</option>
+              <option value="0">0</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="12">12</option>
+              <option value="14.5">14.5</option>
+              <option value="16">16</option>
+              <option value="18">18</option>
+              <option value="20">20</option>
+              <option value="24">24</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="30">30</option>
+            </select>
+            <span class="error-message" id="error-hra"></span>
+          </div>
+          <div class="input-group" id="group-employeeDesignation" style="display: none;">
+            <label for="input-employeeDesignation">Employee Designation *</label>
+            <input type="text" id="input-employeeDesignation" name="employeeDesignation" value=""
+              placeholder="Enter designation...">
+            <span class="error-message" id="error-employeeDesignation"></span>
+          </div>
+          <div class="input-group" id="group-paymentMode">
+            <label for="input-paymentMode">Select the mode through which the employee’s payment will be processed?
+              *</label>
+            <input type="text" id="input-paymentMode" name="paymentMode" value="" required>
+            <span class="error-message" id="error-paymentMode"></span>
+          </div>
+          <div class="input-group" id="group-epfNumber" style="display: none;">
+            <label for="input-epfNumber">EPF Number *</label>
+            <input type="text" id="input-epfNumber" name="epfNumber" value="" placeholder="Enter EPF Number...">
+            <span class="error-message" id="error-epfNumber"></span>
+          </div>
+          <div class="input-group" id="group-esiNumber" style="display: none;">
+            <label for="input-esiNumber">ESI Number *</label>
+            <input type="text" id="input-esiNumber" name="esiNumber" value="" placeholder="Enter ESI Number...">
+            <span class="error-message" id="error-esiNumber"></span>
+          </div>
+          <div class="input-group" id="group-apgliNumber">
+            <label for="input-apgliNumber">APGLI Number</label>
+            <input type="text" id="input-apgliNumber" name="apgliNumber" value="" required>
+            <span class="error-message" id="error-apgliNumber"></span>
+          </div>
+        </div>
+      </section>
+
+      <div class="button-container">
+        <button type="submit">Submit and proceed</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
