@@ -152,207 +152,7 @@ const educationOptions = [
   { label: 'Post-Doctoral', value: 'postdoc' },
 ];
 
-const institutionOptions = [
-  { label: 'RS(B),Peddamadi', value: 'rs_b_peddamadi' },
-  { label: 'RS(G),Seethampeta', value: 'rs_g_seethampeta' },
-  { label: 'MG(G),Seethampeta', value: 'mg_g_seethampeta' },
-  { label: 'MG(G),Kariguda', value: 'mg_g_kariguda' },
-  { label: 'RS(PTG-B),Malli', value: 'rs_ptg_b_malli' },
-  { label: 'RS(B),Seethampeta', value: 'rs_b_seethampeta' },
-  { label: 'RJC(B),Peddamadi', value: 'rjc_b_peddamadi' },
-  { label: 'RJC(B),Seethampeta', value: 'rjc_b_seethampeta' },
-  { label: 'RJC(G),Seethampeta', value: 'rjc_g_seethampeta' },
-  { label: 'COE(B),Malli', value: 'coe_b_malli' },
-  { label: 'EMRS(Co-Edu),Bhamini', value: 'emrs_co_edu_bhamini' },
-  { label: 'EMRS(Co-Edu),Meliaputi', value: 'emrs_co_edu_meliaputi' },
-  { label: 'RS(B),P.Konavalasa', value: 'rs_b_p_konavalasa' },
-  { label: 'RS(PTG-Girls),Bhadragiri', value: 'rs_ptg_girls_bhadragiri' },
-  { label: 'MG(G),Pachipent', value: 'mg_g_pachipent' },
-  { label: 'RJC(G),P.Konavalasa', value: 'rjc_g_p_konavalasa' },
-  { label: 'URJC(G),Kurupam', value: 'urjc_g_kurupam' },
-  { label: 'RS(B),Bhadragiri', value: 'rs_b_bhadragiri' },
-  { label: 'RS(B),Komarada', value: 'rs_b_komarada' },
-  { label: 'SOE(B),Parvathipuram', value: 'soe_b_parvathipuram' },
-  { label: 'RJC(B),Bhadragiri', value: 'rjc_b_bhadragiri' },
-  { label: 'RJC(B),P.Konavalasa', value: 'rjc_b_p_konavalasa' },
-  { label: 'RJC(G),Bhadragiri', value: 'rjc_g_bhadragiri' },
-  { label: 'EMRS(Co-Edu),Anasabhadra', value: 'emrs_co_edu_anasabhadra' },
-  { label: 'EMRS(Co-Edu),Kotikapenta', value: 'emrs_co_edu_kotikapenta' },
-  { label: 'EMRS(Co-Edu),Kurupam', value: 'emrs_co_edu_kurupam' },
-  { label: 'EMRS(Co-Edu),GLPuram', value: 'emrs_co_edu_glpuram' },
-  { label: 'RJC(B),Chintapally', value: 'rjc_b_chintapally' },
-  { label: 'RS(B),Koyyuru', value: 'rs_b_koyyuru' },
-  { label: 'RS(B),Peddabayalu', value: 'rs_b_peddabayalu' },
-  { label: 'RS(B),UpperSileru', value: 'rs_b_uppersileru' },
-  { label: 'RS(G),Paderu', value: 'rs_g_paderu' },
-  { label: 'EMRS(Co-Edu),G.K.Veedhi', value: 'emrs_co_edu_g_k_veedhi' },
-  { label: 'MG-Gomangi', value: 'mg_gomangi' },
-  { label: 'MG-A.Senivaram', value: 'mg_a_senivaram' },
-  { label: 'MG(G),G.Madugula', value: 'mg_g_g_madugula' },
-  { label: 'RJC(G),G.K.Veedhi', value: 'rjc_g_g_k_veedhi' },
-  { label: 'RS(PTG-B),Araku', value: 'rs_ptg_b_araku' },
-  { label: 'RS(B),G.Madugula', value: 'rs_b_g_madugula' },
-  { label: 'RS(B),Tummalavalasa', value: 'rs_b_tummalavalasa' },
-  { label: 'RS(G),Arakualley', value: 'rs_g_arakualley' },
-  { label: 'RS(B),VizagatMarikivalasa', value: 'rs_b_vizagatmarikivalasa' },
-  { label: 'RJC(B),Araku', value: 'rjc_b_araku' },
-  { label: 'RJC(B),G.Madugula', value: 'rjc_b_g_madugula' },
-  { label: 'RJC(B),Koyyuru', value: 'rjc_b_koyyuru' },
-  { label: 'RJC(B),Peddabayalu', value: 'rjc_b_peddabayalu' },
-  { label: 'RJC(G),Arakuvalley', value: 'rjc_g_arakuvalley' },
-  { label: 'RJC(G),Paderu', value: 'rjc_g_paderu' },
-  { label: 'SOE(G),Vizag', value: 'soe_g_vizag' },
-  { label: 'RS(B),VizagSportsSchool', value: 'rs_b_vizagsportsschool' },
-  { label: 'EMRS(Co-Edu),Ananthagiri', value: 'emrs_co_edu_ananthagiri' },
-  { label: 'EMRS(Co-Edu),Arakuvalley', value: 'emrs_co_edu_arakuvalley' },
-  { label: 'EMRS(Co-Edu),Paderu', value: 'emrs_co_edu_paderu' },
-  { label: 'EMRS(Co-Edu),Hukumpeta', value: 'emrs_co_edu_hukumpeta' },
-  { label: 'EMRS(Co-Edu),Peddabayalu', value: 'emrs_co_edu_peddabayalu' },
-  { label: 'EMRS(Co-Edu),G.Madugula', value: 'emrs_co_edu_g_madugula' },
-  { label: 'EMRS(Co-Edu),Koyyuru', value: 'emrs_co_edu_koyyuru' },
-  { label: 'EMRS(Co-Edu),Dumbriguda', value: 'emrs_co_edu_dumbriguda' },
-  { label: 'EMRS(Co-Edu),Munchigput', value: 'emrs_co_edu_munchigput' },
-  { label: 'EMRS(Co-Edu),Chintapalli', value: 'emrs_co_edu_chintapalli' },
-  { label: 'RJC(B),Maredumilli', value: 'rjc_b_maredumilli' },
-  { label: 'RS(B),Addatheegala', value: 'rs_b_addatheegala' },
-  { label: 'RS(G),Rajavommangi', value: 'rs_g_rajavommangi' },
-  { label: 'EMRS(G),Y.Ramavaram', value: 'emrs_g_y_ramavaram' },
-  { label: 'URJC(G),Kunavaram', value: 'urjc_g_kunavaram' },
-  { label: 'MG(G),V.R.Puram', value: 'mg_g_v_r_puram' },
-  { label: 'RJC(G),R.C.Varam', value: 'rjc_g_r_c_varam' },
-  { label: 'RS(PTG-Boys),Maredumilli', value: 'rs_ptg_boys_maredumilli' },
-  { label: 'RS(B),R.C.Varam', value: 'rs_b_r_c_varam' },
-  { label: 'RS(PTG-B),Chintoor', value: 'rs_ptg_b_chintoor' },
-  { label: 'RS(G),R.C.Varam', value: 'rs_g_r_c_varam' },
-  { label: 'RJC(B),Addateegala', value: 'rjc_b_addateegala' },
-  { label: 'RJC(B),R.C.Varam', value: 'rjc_b_r_c_varam' },
-  { label: 'RJC(B),Chintoor', value: 'rjc_b_chintoor' },
-  { label: 'RJC(G),Y.Ramavaram', value: 'rjc_g_y_ramavaram' },
-  { label: 'RJC(G),Rajavommangi', value: 'rjc_g_rajavommangi' },
-  { label: 'EMRS(Co-Edu),Maredumilli', value: 'emrs_co_edu_maredumilli' },
-  { label: 'EMRS(Co-Edu),R.C. Varam', value: 'emrs_co_edu_r_c_varam' },
-  { label: 'EMRS(Co-Edu),Addatheegala', value: 'emrs_co_edu_addatheegala' },
-  { label: 'EMRS(Co-Edu),Chintoor', value: 'emrs_co_edu_chintoor' },
-  { label: 'EMRS(Co-Edu),Rajavommangi', value: 'emrs_co_edu_rajavommangi' },
-  { label: 'RS(G),Buttayyagudem', value: 'rs_g_buttayyagudem' },
-  { label: 'RS(B),Jeelugumilli', value: 'rs_b_jeelugumilli' },
-  { label: 'RS(B),K.R.Puram', value: 'rs_b_k_r_puram' },
-  { label: 'RJC(B),Jeelugumilli', value: 'rjc_b_jeelugumilli' },
-  { label: 'RJC(B),K.R.Puram', value: 'rjc_b_k_r_puram' },
-  { label: 'RJC(G),Buttayyagudem', value: 'rjc_g_buttayyagudem' },
-  { label: 'EMRS(Co-Edu),Buttayagudem', value: 'emrs_co_edu_buttayagudem' },
-  { label: 'RS(G),Vissannapeta', value: 'rs_g_vissannapeta' },
-  { label: 'COE(G),Vissannapeta', value: 'coe_g_vissannapeta' },
-  { label: 'HCRS(B),Jaggaiapeta', value: 'hcrs_b_jaggaiapeta' },
-  { label: 'HCRS(B),Vuyyuru', value: 'hcrs_b_vuyyuru' },
-  { label: 'HCRS(B),Vissannapeta', value: 'hcrs_b_vissannapeta' },
-  { label: 'HCRS(G),Nandigama', value: 'hcrs_g_nandigama' },
-  { label: 'HCRS(G),Mylavaram', value: 'hcrs_g_mylavaram' },
-  { label: 'HCRS(G),Vijayawada at Kondapalli', value: 'hcrs_g_vijayawada_at_kondapalli' },
-  { label: 'MG(G),G.P.Cheruvu', value: 'mg_g_g_p_cheruvu' },
-  { label: 'RS(PTG-Boys),Nagarjunasagar', value: 'rs_ptg_boys_nagarjunasagar' },
-  { label: 'HCRS(B),Stuvartpuram', value: 'hcrs_b_stuvartpuram' },
-  { label: 'HCRS(G),Vinukonda', value: 'hcrs_g_vinukonda' },
-  { label: 'HCRS(B),Guntur', value: 'hcrs_b_guntur' },
-  { label: 'HCRS(B),Chilakaluripeta', value: 'hcrs_b_chilakaluripeta' },
-  { label: 'HCRS(B),Repalle', value: 'hcrs_b_repalle' },
-  { label: 'HCRS(B),PonnuruatTenali', value: 'hcrs_b_ponnuruattenali' },
-  { label: 'HCRS(G),Narsaraopet', value: 'hcrs_g_narsaraopet' },
-  { label: 'HCRS(B),Rentachintala', value: 'hcrs_b_rentachintala' },
-  { label: 'HCRS(G),Piduguralla', value: 'hcrs_g_piduguralla' },
-  { label: 'HCRS(B),Vinukonda', value: 'hcrs_b_vinukonda' },
-  { label: 'HCRS(G),Karampudi', value: 'hcrs_g_karampudi' },
-  { label: 'HCRS(B),Piduguralla', value: 'hcrs_b_piduguralla' },
-  { label: 'HCRS(G),Tenali', value: 'hcrs_g_tenali' },
-  { label: 'HCRS(B),Narasaraopeta', value: 'hcrs_b_narasaraopeta' },
-  { label: 'HCRS(B),Karampudi', value: 'hcrs_b_karampudi' },
-  { label: 'HCRS(B),Bellamkonda', value: 'hcrs_b_bellamkonda' },
-  { label: 'HCRS(B),Addanki', value: 'hcrs_b_addanki' },
-  { label: 'HCRS(B),Karedu', value: 'hcrs_b_karedu' },
-  { label: 'HCRS(B),Parchur', value: 'hcrs_b_parchur' },
-  { label: 'HCRS(B),Chirala', value: 'hcrs_b_chirala' },
-  { label: 'HCRS(B),Dornala', value: 'hcrs_b_dornala' },
-  { label: 'HCRS(G),Giddaluru', value: 'hcrs_g_giddaluru' },
-  { label: 'HCRS(G),Chirala', value: 'hcrs_g_chirala' },
-  { label: 'HCRS(G),Dornala', value: 'hcrs_g_dornala' },
-  { label: 'MG(G),Y.Palem', value: 'mg_g_y_palem' },
-  { label: 'RS(PTG-Boys),Y.Palem', value: 'rs_ptg_boys_y_palem' },
-  { label: 'RJC(B),Y.Palem', value: 'rjc_b_y_palem' },
-  { label: 'EMRS(Co-Edu),Dornala', value: 'emrs_co_edu_dornala' },
-  { label: 'HCRS(B),Y.G.Palem', value: 'hcrs_b_y_g_palem' },
-  { label: 'HCRS(G),Karedu', value: 'hcrs_g_karedu' },
-  { label: 'HCRS(B),Kanigiri', value: 'hcrs_b_kanigiri' },
-  { label: 'HCRS(G),Markapur', value: 'hcrs_g_markapur' },
-  { label: 'HCRS(B),Giddaluru', value: 'hcrs_b_giddaluru' },
-  { label: 'HCRS(B),Chimakurthy', value: 'hcrs_b_chimakurthy' },
-  { label: 'HCRS(B),Kodavaluru', value: 'hcrs_b_kodavaluru' },
-  { label: 'EMRS(Co-Edu),Kodavaluru', value: 'emrs_co_edu_kodavaluru' },
-  { label: 'MG(G),Gudur', value: 'mg_g_gudur' },
-  { label: 'RS(PTG-B),Chittedu', value: 'rs_ptg_b_chittedu' },
-  { label: 'RS(PTG-B),Somasila', value: 'rs_ptg_b_somasila' },
-  { label: 'RJC(B),Chittedu', value: 'rjc_b_chittedu' },
-  { label: 'HCRS(G),Nellore', value: 'hcrs_g_nellore' },
-  { label: 'HCRS(G),Gudur', value: 'hcrs_g_gudur' },
-  { label: 'HCRS(B),Naidupeta at Gottiprolu', value: 'hcrs_b_naidupeta_at_gottiprolu' },
-  { label: 'HCRS(G),Kota', value: 'hcrs_g_kota' },
-  { label: 'HCRS(B),Kavali', value: 'hcrs_b_kavali' },
-  { label: 'HCRS(G),Rapur', value: 'hcrs_g_rapur' },
-  { label: 'HCRS(B),Sarvepalli at Nellore', value: 'hcrs_b_sarvepalli_at_nellore' },
-  { label: 'HCRS(B),B.R.Palem', value: 'hcrs_b_b_r_palem' },
-  { label: 'HCRS(G),Venkatagiri', value: 'hcrs_g_venkatagiri' },
-  { label: 'HCRS(B),Indukurpet', value: 'hcrs_b_indukurpet' },
-  { label: 'HCRS(G),Kavali', value: 'hcrs_g_kavali' },
-  { label: 'HCRS(B),Guduru at Chennuru', value: 'hcrs_b_guduru_at_chennuru' },
-  { label: 'EMRS(Co-Edu),Ojili', value: 'emrs_co_edu_ojili' },
-  { label: 'URJC(G),Srikalahasthi', value: 'urjc_g_srikalahasthi' },
-  { label: 'RS(B),Renigunta', value: 'rs_b_renigunta' },
-  { label: 'RS(G),K.V.Palli', value: 'rs_g_k_v_palli' },
-  { label: 'SOE(G),Srikalahasthi', value: 'soe_g_srikalahasthi' },
-  { label: 'HCRS(G),Chittoor', value: 'hcrs_g_chittoor' },
-  { label: 'HCRS(G),Tirupathi', value: 'hcrs_g_tirupathi' },
-  { label: 'HCRS(B),Srikalahasthi', value: 'hcrs_b_srikalahasthi' },
-  { label: 'HCRS(B),Madanapalli', value: 'hcrs_b_madanapalli' },
-  { label: 'HCRS(B),Puttur', value: 'hcrs_b_puttur' },
-  { label: 'HCRS(B),Bangarupalem', value: 'hcrs_b_bangarupalem' },
-  { label: 'HCRS(B),Ramakuppam', value: 'hcrs_b_ramakuppam' },
-  { label: 'HCRS(B),Pileru', value: 'hcrs_b_pileru' },
-  { label: 'HCRS(B),Tambalapalle', value: 'hcrs_b_tambalapalle' },
-  { label: 'HCRS(G),Punganur', value: 'hcrs_g_punganur' },
-  { label: 'EMRS(Co-Edu),B.N.Khandriga', value: 'emrs_co_edu_b_n_khandriga' },
-  { label: 'MG(G),RailwayKoduru', value: 'mg_g_railwaykoduru' },
-  { label: 'RS(G),Rayachoti', value: 'rs_g_rayachoti' },
-  { label: 'HCRS(B),T.Sundupalli', value: 'hcrs_b_t_sundupalli' },
-  { label: 'HCRS(B),Porumamilla', value: 'hcrs_b_porumamilla' },
-  { label: 'HCRS(B),Rayachoti', value: 'hcrs_b_rayachoti' },
-  { label: 'HCRS(B),Pulivendala', value: 'hcrs_b_pulivendala' },
-  { label: 'HCRS(B),Kadapa', value: 'hcrs_b_kadapa' },
-  { label: 'HCRS(G),Kadapa', value: 'hcrs_g_kadapa' },
-  { label: 'HCRS(B),Mydukuru', value: 'hcrs_b_mydukuru' },
-  { label: 'MG(G),N.R.kunta', value: 'mg_g_n_r_kunta' },
-  { label: 'RJC(G),Mahanandi', value: 'rjc_g_mahanandi' },
-  { label: 'RS(B),Srisailam', value: 'rs_b_srisailam' },
-  { label: 'RS(PTG-G),Mahanandi', value: 'rs_ptg_g_mahanandi' },
-  { label: 'SOE(B),Srisailam', value: 'soe_b_srisailam' },
-  { label: 'RJC(B),Srisailam', value: 'rjc_b_srisailam' },
-  { label: 'HCRS(G),Bairluty', value: 'hcrs_g_bairluty' },
-  { label: 'HCRS(B),Panyam', value: 'hcrs_b_panyam' },
-  { label: 'HCRS(G),Aluru', value: 'hcrs_g_aluru' },
-  { label: 'HCRS(B),Allagadda', value: 'hcrs_b_allagadda' },
-  { label: 'HCRS(G),Kurnool', value: 'hcrs_g_kurnool' },
-  { label: 'HCRS(B),Tuggali', value: 'hcrs_b_tuggali' },
-  { label: 'URJC(B),Golladoddi', value: 'urjc_b_golladoddi' },
-  { label: 'RS(G),Thanakallu', value: 'rs_g_thanakallu' },
-  { label: 'COE(G),Thanakallu', value: 'coe_g_thanakallu' },
-  { label: 'HCRS(G),Anantapur', value: 'hcrs_g_anantapur' },
-  { label: 'HCRS(G),Kadiri', value: 'hcrs_g_kadiri' },
-  { label: 'HCRS(B),Ragulapadu', value: 'hcrs_b_ragulapadu' },
-  { label: 'HCRS(G),Gorantla', value: 'hcrs_g_gorantla' },
-  { label: 'HCRS(G),Penugonda', value: 'hcrs_g_penugonda' },
-  { label: 'HCRS(B),Kalyanadurgam', value: 'hcrs_b_kalyanadurgam' },
-  { label: 'HCRS(B),B.K.Samudram', value: 'hcrs_b_b_k_samudram' },
-  { label: 'HCRS(B),Kadiri', value: 'hcrs_b_kadiri' },
-  { label: 'HCRS(G),Uravakonda', value: 'hcrs_g_uravakonda' },
-];
+
 
 // ============================================================================
 // STATE & VALIDATION ENGINE
@@ -559,23 +359,24 @@ const consolidatedFields = ['consolidatedPayAmount', 'epfNumber', 'esiNumber'];
  * @param {boolean} enabled - True to enable, false to disable
  */
 function setFieldEnabled(name, enabled) {
-  const input = document.getElementById('input-' + name);
-  if (!input) return;
-  input.disabled = !enabled;
-  // Also toggle the custom dropdown wrapper if present
-  const wrapper = input.previousElementSibling;
-  if (wrapper && wrapper.classList.contains('custom-dropdown')) {
-    if (enabled) {
-      wrapper.classList.remove('disabled');
-    } else {
-      wrapper.classList.add('disabled');
-      // Reset display text when disabling
-      const displayText = wrapper.querySelector('.display-text');
-      if (displayText && !input.value) {
-        displayText.textContent = input.placeholder || 'Select...';
+  const inputs = document.querySelectorAll(`[name="${name}"]`);
+  inputs.forEach(input => {
+    input.disabled = !enabled;
+    // Also toggle the custom dropdown wrapper if present
+    const wrapper = input.previousElementSibling;
+    if (wrapper && wrapper.classList.contains('custom-dropdown')) {
+      if (enabled) {
+        wrapper.classList.remove('disabled');
+      } else {
+        wrapper.classList.add('disabled');
+        // Reset display text when disabling
+        const displayText = wrapper.querySelector('.display-text');
+        if (displayText && !input.value) {
+          displayText.textContent = input.placeholder || 'Select...';
+        }
       }
     }
-  }
+  });
 }
 
 /**
@@ -615,11 +416,11 @@ function refreshPaySequence() {
     setFieldEnabled(curr, prevFilled);
     if (!prevFilled) {
       // Also clear the field's value when disabling
-      const input = document.getElementById('input-' + curr);
-      if (input && input.value) {
-        input.value = '';
-        formData[curr] = '';
-      }
+      const inputs = document.querySelectorAll(`[name="${curr}"]`);
+      inputs.forEach(input => {
+        if (input.value) input.value = '';
+      });
+      formData[curr] = '';
     }
   }
 }
@@ -823,20 +624,132 @@ const nonTeachingDesignations = [
 ];
 
 /**
+ * Filter the Employee Category options based on the selected Post Category.
+ * If 'Regular' is selected, show all options.
+ * Otherwise, show only the option that matches the Post Category (case-insensitive).
+ * Blocks the dropdown if no Post Category is selected.
+ * @param {string} postCategory - The selected post category value
+ */
+function updateEmployeeCategoryOptions(postCategory) {
+  console.log('updateEmployeeCategoryOptions called with:', postCategory);
+  const employeeCategorySelect = document.getElementById('input-employeeCategory');
+  if (!employeeCategorySelect) return;
+
+  const wrapper = employeeCategorySelect.previousElementSibling;
+  const isCustomDropdown = wrapper && wrapper.classList.contains('custom-dropdown');
+
+  // Use the global categoryOptions defined at the top of the script
+  let filteredCategories = [];
+  let shouldEnable = false;
+  let placeholderText = 'Select Employee Category';
+
+  if (postCategory === 'Regular') {
+    filteredCategories = categoryOptions;
+    shouldEnable = true;
+  } else if (postCategory) {
+    // Attempt to find a matching category (case-insensitive)
+    filteredCategories = categoryOptions.filter(cat => 
+      cat.label.toLowerCase() === postCategory.toLowerCase()
+    );
+    shouldEnable = true;
+    console.log('Filtered to:', filteredCategories);
+  } else {
+    // Block if no Post Category selected
+    filteredCategories = [];
+    shouldEnable = false;
+    placeholderText = 'Select Post Category first';
+  }
+
+  // Clear current options and rebuild
+  employeeCategorySelect.innerHTML = `<option value="" disabled selected>${placeholderText}</option>`;
+  filteredCategories.forEach(cat => {
+    const opt = document.createElement('option');
+    opt.value = cat.value;
+    opt.textContent = cat.label;
+    employeeCategorySelect.appendChild(opt);
+  });
+
+  employeeCategorySelect.disabled = !shouldEnable;
+
+  // Reset value if current selection is no longer valid in the new list, or if disabled
+  if (!shouldEnable || (formData.employeeCategory && !filteredCategories.find(cat => cat.value === formData.employeeCategory))) {
+    console.log('Resetting employeeCategory because current value is invalid or disabled');
+    employeeCategorySelect.value = '';
+    formData.employeeCategory = '';
+    if (isCustomDropdown) {
+      const displayText = wrapper.querySelector('.display-text');
+      if (displayText) displayText.textContent = placeholderText;
+    }
+  } else if (!formData.employeeCategory && isCustomDropdown) {
+     const displayText = wrapper.querySelector('.display-text');
+     if (displayText) displayText.textContent = placeholderText;
+  }
+
+  // Sync custom dropdown UI
+  if (isCustomDropdown) {
+    if (shouldEnable) {
+      wrapper.classList.remove('disabled');
+    } else {
+      wrapper.classList.add('disabled');
+    }
+
+    console.log('Syncing custom dropdown for employeeCategory');
+    const list = wrapper.querySelector('.options-list');
+    if (list) {
+      list.innerHTML = '';
+      filteredCategories.forEach(cat => {
+        const li = document.createElement('li');
+        li.className = 'option-item';
+        li.textContent = cat.label;
+        li.addEventListener('click', (e) => {
+          e.stopPropagation();
+          employeeCategorySelect.value = cat.value;
+          formData.employeeCategory = cat.value;
+          const displayText = wrapper.querySelector('.display-text');
+          if (displayText) displayText.textContent = cat.label;
+          handleInputChange('employeeCategory', cat.value, employeeCategorySelect);
+          wrapper.classList.remove('open');
+        });
+        list.appendChild(li);
+      });
+
+      if (filteredCategories.length === 0) {
+        const li = document.createElement('li');
+        li.className = 'no-options';
+        li.textContent = 'No matching categories found';
+        list.appendChild(li);
+      }
+    }
+  }
+
+  // Trigger subsequent visibility updates
+  updateEmploymentFieldsVisibility();
+}
+
+/**
  * Populates the Designation select dropdown based on the selected Position.
  * Enables the select when a position is chosen, disables it otherwise.
  * @param {string} position - The selected position value ('Teaching' or 'Non-Teaching')
  */
 function updateDesignationOptions(position) {
   const designationSelect = document.getElementById('input-designation');
+  const empDesignationSelect = document.getElementById('input-employeeDesignation');
   if (!designationSelect) return;
 
   // Clear current options
   designationSelect.innerHTML = '';
   formData.designation = '';
 
+  if (empDesignationSelect) {
+    empDesignationSelect.innerHTML = '';
+    formData.employeeDesignation = '';
+  }
+
   const wrapper = designationSelect.previousElementSibling;
   const isCustomDropdown = wrapper && wrapper.classList.contains('custom-dropdown');
+
+  const empWrapper = empDesignationSelect ? empDesignationSelect.previousElementSibling : null;
+  const empIsCustomDropdown = empWrapper && empWrapper.classList.contains('custom-dropdown');
 
   let options = [];
   let placeholderText = 'Select Designation';
@@ -860,14 +773,25 @@ function updateDesignationOptions(position) {
   placeholder.textContent = placeholderText;
   designationSelect.appendChild(placeholder);
 
+  if (empDesignationSelect) {
+    const empPlaceholder = placeholder.cloneNode(true);
+    empDesignationSelect.appendChild(empPlaceholder);
+  }
+
   options.forEach(d => {
     const opt = document.createElement('option');
     opt.value = d;
     opt.textContent = d.replace(/_/g, ' ');
     designationSelect.appendChild(opt);
+
+    if (empDesignationSelect) {
+      const empOpt = opt.cloneNode(true);
+      empDesignationSelect.appendChild(empOpt);
+    }
   });
 
   designationSelect.disabled = !shouldEnable;
+  if (empDesignationSelect) empDesignationSelect.disabled = !shouldEnable;
 
   // Sync custom dropdown wrapper UI
   if (isCustomDropdown) {
@@ -879,6 +803,18 @@ function updateDesignationOptions(position) {
     const displayText = wrapper.querySelector('.display-text');
     if (displayText) {
       displayText.textContent = placeholderText;
+    }
+  }
+
+  if (empIsCustomDropdown) {
+    if (shouldEnable) {
+      empWrapper.classList.remove('disabled');
+    } else {
+      empWrapper.classList.add('disabled');
+    }
+    const empDisplayText = empWrapper.querySelector('.display-text');
+    if (empDisplayText) {
+      empDisplayText.textContent = placeholderText;
     }
   }
 }
@@ -912,6 +848,14 @@ function handleInputChange(name, value, inputElement) {
   // Bank and numeric ID fields
   if (['bankAccountNumber', 'epfNumber', 'esiNumber', 'apgliNumber'].includes(name)) {
     value = value.replace(/\D/g, '');
+  }
+  // Basic Pay: Only numbers
+  if (name === 'basicPay') {
+    value = value.replace(/\D/g, '');
+  }
+  // Scale of Pay: Numbers, spaces, and hyphens
+  if (name === 'scaleOfPay') {
+    value = value.replace(/[^\d\s\-]/g, '');
   }
   if (name === 'bankIfscCode') {
     value = value.replace(/[^a-zA-Z0-9]/g, '').toUpperCase().slice(0, 11);
@@ -986,19 +930,32 @@ function handleInputChange(name, value, inputElement) {
   // Dynamic Subject update based on Designation (only for PGT / TGT)
   if (name === 'designation') {
     updateSubjectOptions(value);
-    
+
     // Sync with Employee Designation in Employment & Pay section
     const empDesignationInput = document.getElementById('input-employeeDesignation');
     if (empDesignationInput) {
-      const displayValue = value.replace(/_/g, ' ');
-      empDesignationInput.value = displayValue;
-      formData.employeeDesignation = displayValue;
+      const displayValue = value ? value.replace(/_/g, ' ') : '';
+      empDesignationInput.value = value;
+      formData.employeeDesignation = value;
+
+      const empWrapper = empDesignationInput.previousElementSibling;
+      if (empWrapper && empWrapper.classList.contains('custom-dropdown')) {
+        const empDisplayText = empWrapper.querySelector('.display-text');
+        if (empDisplayText) {
+          empDisplayText.textContent = displayValue || 'Select Designation';
+        }
+      }
     }
+  }
+
+  // Dynamic Employee Category update based on Post Category
+  if (name === 'postCategory') {
+    updateEmployeeCategoryOptions(value);
   }
 
   // Dynamic Basic Pay update based on Scale of Pay
   if (name === 'scaleOfPay') {
-    const basicPaySelect = document.getElementById('input-basicPay');
+    const basicPaySelect = document.getElementById('input-basicPay-dropdown');
     if (basicPaySelect) {
       const payValues = [
         '20000', '20600', '21200', '21800', '22460', '23120', '23780', '24500',
@@ -1086,6 +1043,50 @@ function handleInputChange(name, value, inputElement) {
       }
     }
   }
+
+  // Dynamic UI updates based on PRC Year
+  // Ensure that 'Scale of Pay' and 'Basic Pay' show as dropdowns for 2022, but number inputs otherwise.
+  if (name === 'prcYear') {
+    const scaleDropdownInput = document.getElementById('input-scaleOfPay-dropdown');
+    const scaleDropdownWrapper = scaleDropdownInput ? scaleDropdownInput.previousElementSibling : null;
+    const scaleNumberInput = document.getElementById('input-scaleOfPay-number');
+
+    const basicDropdownInput = document.getElementById('input-basicPay-dropdown');
+    const basicDropdownWrapper = basicDropdownInput ? basicDropdownInput.previousElementSibling : null;
+    const basicNumberInput = document.getElementById('input-basicPay-number');
+
+    if (value === '2022') {
+       if (scaleDropdownWrapper) scaleDropdownWrapper.style.display = '';
+       if (scaleNumberInput) scaleNumberInput.style.display = 'none';
+
+       if (basicDropdownWrapper) basicDropdownWrapper.style.display = '';
+       if (basicNumberInput) basicNumberInput.style.display = 'none';
+    } else {
+       if (scaleDropdownWrapper) scaleDropdownWrapper.style.display = 'none';
+       if (scaleNumberInput) scaleNumberInput.style.display = '';
+
+       if (basicDropdownWrapper) basicDropdownWrapper.style.display = 'none';
+       if (basicNumberInput) basicNumberInput.style.display = '';
+    }
+
+    // Reset values when PRC year changes
+    formData.scaleOfPay = '';
+    formData.basicPay = '';
+    if (scaleDropdownInput) scaleDropdownInput.value = '';
+    if (scaleNumberInput) scaleNumberInput.value = '';
+    if (basicDropdownInput) basicDropdownInput.value = '';
+    if (basicNumberInput) basicNumberInput.value = '';
+
+    if (scaleDropdownWrapper && scaleDropdownWrapper.classList.contains('custom-dropdown')) {
+       const displayText = scaleDropdownWrapper.querySelector('.display-text');
+       if (displayText) displayText.textContent = 'Type to search...';
+    }
+    if (basicDropdownWrapper && basicDropdownWrapper.classList.contains('custom-dropdown')) {
+       const displayText = basicDropdownWrapper.querySelector('.display-text');
+       if (displayText) displayText.textContent = 'Select Basic Pay';
+    }
+  }
+
   // Re-evaluate sequential locking whenever a pay-section field changes
   if (paySequence.includes(name)) {
     refreshPaySequence();
