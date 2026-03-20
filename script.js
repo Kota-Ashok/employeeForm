@@ -436,6 +436,7 @@ function updateEmploymentFieldsVisibility() {
     consolidatedFields.forEach(f => updateVisibility(f, false));
     updateVisibility('employeeDesignation', true);
     updateVisibility('paymentMode', true);
+    updateVisibility('esiNumber', true);
   } else if (category === 'contract') {
     const isConsolidated = typeOfPay === 'consolidated_pay';
     const isMinimumTime = typeOfPay === 'minimum_time_scale';
