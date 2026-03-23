@@ -1,916 +1,1574 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Information Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Employee Information Form</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+  <body>
+    <div class="card">
+      <h1>Employee Information Form</h1>
 
-<body>
-  <div class="card">
-    <h1>Employee Information Form</h1>
-
-    <form id="employeeForm">
-      <!-- Section 1: Personal Information -->
-      <section class="form-section">
-        <h2 class="section-header">Personal Information</h2>
-        <div class="form-grid">
-          <div class="input-group" id="group-aadhaarSearch">
-            <label for="input-aadhaarSearch">Aadhaar Search option</label>
-            <div class="input-with-action">
-              <input type="text" id="input-aadhaarSearch" name="aadhaarSearch" value=""
-                placeholder="Search by Aadhaar...">
-              <button type="button" class="action-button" id="btn-aadhaarSearch">Search</button>
+      <form id="employeeForm">
+        <!-- Section 1: Personal Information -->
+        <!-- Captures basic identity details and conditional fields like Spouse Name and Disability Percentage -->
+        <section class="form-section">
+          <h2 class="section-header">Personal Information</h2>
+          <div class="form-grid">
+            <div class="input-group" id="group-aadhaarSearch">
+              <label for="input-aadhaarSearch">Aadhaar Search option</label>
+              <div class="input-with-action">
+                <input
+                  type="text"
+                  id="input-aadhaarSearch"
+                  name="aadhaarSearch"
+                  value=""
+                  placeholder="Search by Aadhaar..."
+                />
+                <button
+                  type="button"
+                  class="action-button"
+                  id="btn-aadhaarSearch"
+                >
+                  Search
+                </button>
+              </div>
+              <span class="error-message" id="error-aadhaarSearch"></span>
             </div>
-            <span class="error-message" id="error-aadhaarSearch"></span>
+            <div class="input-group" id="group-aadhaarNumber">
+              <label for="input-aadhaarNumber"
+                ><span class="required-star">*</span> Aadhaar Number</label
+              >
+              <input
+                type="text"
+                id="input-aadhaarNumber"
+                name="aadhaarNumber"
+                value=""
+                required
+              />
+              <span class="error-message" id="error-aadhaarNumber"></span>
+            </div>
+            <div class="input-group" id="group-cfmsId">
+              <label for="input-cfmsId"
+                ><span class="required-star">*</span> CFMS ID</label
+              >
+              <input
+                type="text"
+                id="input-cfmsId"
+                name="cfmsId"
+                value=""
+                required
+              />
+              <span class="error-message" id="error-cfmsId"></span>
+            </div>
+            <div class="input-group" id="group-title">
+              <label for="input-title"
+                ><span class="required-star">*</span> Title</label
+              >
+              <select id="input-title" name="title" required>
+                <option value="" disabled selected>Select Title</option>
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Ms">Ms</option>
+                <option value="Dr">Dr</option>
+                <option value="Prof">Prof</option>
+              </select>
+              <span class="error-message" id="error-title"></span>
+            </div>
+            <div class="input-group" id="group-name">
+              <label for="input-name"
+                ><span class="required-star">*</span> Name</label
+              >
+              <input
+                type="text"
+                id="input-name"
+                name="name"
+                value=""
+                required
+              />
+              <span class="error-message" id="error-name"></span>
+            </div>
+            <div class="input-group" id="group-fatherName">
+              <label for="input-fatherName"
+                ><span class="required-star">*</span> Father Name</label
+              >
+              <input
+                type="text"
+                id="input-fatherName"
+                name="fatherName"
+                value=""
+                required
+              />
+              <span class="error-message" id="error-fatherName"></span>
+            </div>
+            <div class="input-group" id="group-dob">
+              <label for="input-dob"
+                ><span class="required-star">*</span> Date of Birth
+                (MM/DD/YYYY)</label
+              >
+              <input type="date" id="input-dob" name="dob" value="" required />
+              <span class="error-message" id="error-dob"></span>
+            </div>
+            <div class="input-group" id="group-joiningDate">
+              <label for="input-joiningDate"
+                ><span class="required-star">*</span> Date of Joining
+                (MM/DD/YYYY)</label
+              >
+              <input
+                type="date"
+                id="input-joiningDate"
+                name="joiningDate"
+                value=""
+                required
+              />
+              <span class="error-message" id="error-joiningDate"></span>
+            </div>
+            <div class="input-group" id="group-gender">
+              <label for="input-gender"
+                ><span class="required-star">*</span> Gender</label
+              >
+              <select id="input-gender" name="gender" required>
+                <option value="" disabled selected>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+              <span class="error-message" id="error-gender"></span>
+            </div>
+            <div class="input-group" id="group-maritalStatus">
+              <label for="input-maritalStatus"
+                ><span class="required-star">*</span> Marital Status</label
+              >
+              <select id="input-maritalStatus" name="maritalStatus">
+                <option value="" disabled selected>
+                  Select Marital Status
+                </option>
+                <option value="single">Single</option>
+                <option value="married">Married</option>
+                <option value="widow">Widow</option>
+                <option value="divorced">Divorced</option>
+              </select>
+              <span class="error-message" id="error-maritalStatus"></span>
+            </div>
+            <div
+              class="input-group"
+              id="group-spouseName"
+              style="display: none"
+            >
+              <label for="input-spouseName"
+                ><span class="required-star">*</span> Spouse Name</label
+              >
+              <input
+                type="text"
+                id="input-spouseName"
+                name="spouseName"
+                value=""
+              />
+              <span class="error-message" id="error-spouseName"></span>
+            </div>
+            <div class="input-group" id="group-caste">
+              <label for="input-caste"
+                ><span class="required-star">*</span> Caste</label
+              >
+              <select id="input-caste" name="caste">
+                <option value="" disabled selected>Select Caste</option>
+                <option value="oc">OC</option>
+                <option value="bc_a">BC-A</option>
+                <option value="bc_b">BC-B</option>
+                <option value="bc_c">BC-C</option>
+                <option value="bc_d">BC-D</option>
+                <option value="bc_e">BC-E</option>
+                <option value="sc">SC</option>
+                <option value="st">ST</option>
+              </select>
+              <span class="error-message" id="error-caste"></span>
+            </div>
+            <div class="input-group" id="group-religion">
+              <label for="input-religion"
+                ><span class="required-star">*</span> Religion</label
+              >
+              <select id="input-religion" name="religion">
+                <option value="" disabled selected>Select Religion</option>
+                <option value="hindu">Hindu</option>
+                <option value="muslim">Muslim</option>
+                <option value="christian">Christian</option>
+                <option value="sikh">Sikh</option>
+                <option value="buddhist">Buddhist</option>
+                <option value="jain">Jain</option>
+                <option value="others">Others</option>
+              </select>
+              <span class="error-message" id="error-religion"></span>
+            </div>
+            <div class="input-group" id="group-highestEducation">
+              <label for="input-highestEducation"
+                ><span class="required-star">*</span> Highest Education
+                Qualification</label
+              >
+              <input
+                list="list-highestEducation"
+                id="input-highestEducation"
+                name="highestEducation"
+                placeholder="Type to search..."
+              />
+              <datalist id="list-highestEducation">
+                <option value="Below SSC"></option>
+                <option value="SSC"></option>
+                <option value="HSC"></option>
+                <option value="Graduation"></option>
+                <option value="Masters/Post Graduate"></option>
+                <option value="Professional(CA,CS,CMA,ect…)"></option>
+                <option value="Diploma"></option>
+                <option value="Graduation"></option>
+                <option value="B.Ed"></option>
+                <option value="post Graduation"></option>
+                <option value="M.Phil"></option>
+                <option value="M.Ed"></option>
+                <option value="T.T.C"></option>
+                <option value="Ph.D"></option>
+                <option value="LLB/BL"></option>
+                <option value="Technical Qualification"></option>
+                <option value="B.P.Ed"></option>
+                <option value="M.P.Ed"></option>
+                <option value="U.G.D.P.Ed"></option>
+                <option value="Others"></option>
+              </datalist>
+              <span class="error-message" id="error-highestEducation"></span>
+            </div>
+            <div class="input-group" id="group-isPhysicalChallenged">
+              <label for="input-isPhysicalChallenged"
+                ><span class="required-star">*</span> Physical challenged
+                category</label
+              >
+              <select
+                id="input-isPhysicalChallenged"
+                name="isPhysicalChallenged"
+              >
+                <option value="" disabled selected>
+                  Select Physical challenged category
+                </option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+              <span
+                class="error-message"
+                id="error-isPhysicalChallenged"
+              ></span>
+            </div>
+            <div
+              class="input-group"
+              id="group-physicalChallengedPercentage"
+              style="display: none"
+            >
+              <label for="input-physicalChallengedPercentage"
+                ><span class="required-star">*</span> Percentage (%)</label
+              >
+              <select
+                id="input-physicalChallengedPercentage"
+                name="physicalChallengedPercentage"
+              >
+                <option value="" disabled selected>Select percentage...</option>
+              </select>
+              <span
+                class="error-message"
+                id="error-physicalChallengedPercentage"
+              ></span>
+            </div>
+            <div class="input-group" id="group-panNumber">
+              <label for="input-panNumber"
+                ><span class="required-star">*</span> PAN Number</label
+              >
+              <input
+                type="text"
+                id="input-panNumber"
+                name="panNumber"
+                value=""
+                required
+              />
+              <span class="error-message" id="error-panNumber"></span>
+            </div>
+            <div class="input-group" id="group-mobileNumber">
+              <label for="input-mobileNumber"
+                ><span class="required-star">*</span> Mobile Number</label
+              >
+              <input
+                type="tel"
+                id="input-mobileNumber"
+                name="mobileNumber"
+                value=""
+                required
+              />
+              <span class="error-message" id="error-mobileNumber"></span>
+            </div>
           </div>
-          <div class="input-group" id="group-aadhaarNumber">
-            <label for="input-aadhaarNumber">Aadhaar Number *</label>
-            <input type="text" id="input-aadhaarNumber" name="aadhaarNumber" value="" required>
-            <span class="error-message" id="error-aadhaarNumber"></span>
-          </div>
-          <div class="input-group" id="group-cfmsId">
-            <label for="input-cfmsId">CFMS ID *</label>
-            <input type="text" id="input-cfmsId" name="cfmsId" value="" required>
-            <span class="error-message" id="error-cfmsId"></span>
-          </div>
-          <div class="input-group" id="group-title">
-            <label for="input-title">Title *</label>
-            <select id="input-title" name="title" required>
-              <option value="" disabled selected>Select Title</option>
-              <option value="Mr">Mr</option>
-              <option value="Mrs">Mrs</option>
-              <option value="Ms">Ms</option>
-              <option value="Dr">Dr</option>
-              <option value="Prof">Prof</option>
-            </select>
-            <span class="error-message" id="error-title"></span>
-          </div>
-          <div class="input-group" id="group-name">
-            <label for="input-name">Name *</label>
-            <input type="text" id="input-name" name="name" value="" required>
-            <span class="error-message" id="error-name"></span>
-          </div>
-          <div class="input-group" id="group-fatherName">
-            <label for="input-fatherName">Father Name *</label>
-            <input type="text" id="input-fatherName" name="fatherName" value="" required>
-            <span class="error-message" id="error-fatherName"></span>
-          </div>
-          <div class="input-group" id="group-dob">
-            <label for="input-dob">Date of Birth (MM/DD/YYYY) *</label>
-            <input type="date" id="input-dob" name="dob" value="" required>
-            <span class="error-message" id="error-dob"></span>
-          </div>
-          <div class="input-group" id="group-joiningDate">
-            <label for="input-joiningDate">Date of Joining (MM/DD/YYYY) *</label>
-            <input type="date" id="input-joiningDate" name="joiningDate" value="" required>
-            <span class="error-message" id="error-joiningDate"></span>
-          </div>
-          <div class="input-group" id="group-gender">
-            <label for="input-gender">Gender *</label>
-            <select id="input-gender" name="gender" required>
-              <option value="" disabled selected>Select Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-            </select>
-            <span class="error-message" id="error-gender"></span>
-          </div>
-          <div class="input-group" id="group-maritalStatus">
-            <label for="input-maritalStatus">Marital Status</label>
-            <select id="input-maritalStatus" name="maritalStatus">
-              <option value="" disabled selected>Select Marital Status</option>
-              <option value="single">Single</option>
-              <option value="married">Married</option>
-              <option value="widow">Widow</option>
-              <option value="divorced">Divorced</option>
-            </select>
-            <span class="error-message" id="error-maritalStatus"></span>
-          </div>
-          <div class="input-group" id="group-spouseName" style="display: none;">
-            <label for="input-spouseName">Spouse Name</label>
-            <input type="text" id="input-spouseName" name="spouseName" value="">
-            <span class="error-message" id="error-spouseName"></span>
-          </div>
-          <div class="input-group" id="group-caste">
-            <label for="input-caste">Caste</label>
-            <select id="input-caste" name="caste">
-              <option value="" disabled selected>Select Caste</option>
-              <option value="oc">OC</option>
-              <option value="bc_a">BC-A</option>
-              <option value="bc_b">BC-B</option>
-              <option value="bc_c">BC-C</option>
-              <option value="bc_d">BC-D</option>
-              <option value="bc_e">BC-E</option>
-              <option value="sc">SC</option>
-              <option value="st">ST</option>
-            </select>
-            <span class="error-message" id="error-caste"></span>
-          </div>
-          <div class="input-group" id="group-religion">
-            <label for="input-religion">Religion</label>
-            <select id="input-religion" name="religion">
-              <option value="" disabled selected>Select Religion</option>
-              <option value="hindu">Hindu</option>
-              <option value="muslim">Muslim</option>
-              <option value="christian">Christian</option>
-              <option value="sikh">Sikh</option>
-              <option value="buddhist">Buddhist</option>
-              <option value="jain">Jain</option>
-              <option value="others">Others</option>
-            </select>
-            <span class="error-message" id="error-religion"></span>
-          </div>
-          <div class="input-group" id="group-highestEducation">
-            <label for="input-highestEducation">Highest Education Qualification</label>
-            <input list="list-highestEducation" id="input-highestEducation" name="highestEducation"
-              placeholder="Type to search...">
-            <datalist id="list-highestEducation">
-              <option value="Below SSC"></option>
-              <option value="SSC"></option>
-              <option value="HSC"></option>
-              <option value="Graduation"></option>
-              <option value="Masters/Post Graduate"></option>
-              <option value="Professional(CA,CS,CMA,ect…)"></option>
-              <option value="Diploma"></option>
-              <option value="Graduation"></option>
-              <option value="B.Ed"></option>
-              <option value="post Graduation"></option>
-              <option value="M.Phil"></option>
-              <option value="M.Ed"></option>
-              <option value="T.T.C"></option>
-              <option value="Ph.D"></option>
-              <option value="LLB/BL"></option>
-              <option value="Technical Qualification"></option>
-              <option value="B.P.Ed"></option>
-              <option value="M.P.Ed"></option>
-              <option value="U.G.D.P.Ed"></option>
-              <option value="Others"></option>
+        </section>
 
-            </datalist>
-            <span class="error-message" id="error-highestEducation"></span>
+        <!-- Section 2: Bank Details -->
+        <section class="form-section">
+          <h2 class="section-header">Bank Details</h2>
+          <div class="form-grid">
+            <div class="input-group" id="group-bankAccountNumber">
+              <label for="input-bankAccountNumber"
+                ><span class="required-star">*</span> Bank Account Number</label
+              >
+              <input
+                type="text"
+                id="input-bankAccountNumber"
+                name="bankAccountNumber"
+                value=""
+                required
+              />
+              <span class="error-message" id="error-bankAccountNumber"></span>
+            </div>
+            <div class="input-group" id="group-bankIfscCode">
+              <label for="input-bankIfscCode"
+                ><span class="required-star">*</span> Bank IFSC Code</label
+              >
+              <input
+                type="text"
+                id="input-bankIfscCode"
+                name="bankIfscCode"
+                value=""
+                required
+              />
+              <span class="error-message" id="error-bankIfscCode"></span>
+            </div>
+            <div class="input-group" id="group-bankAndBranch">
+              <label for="input-bankAndBranch"
+                ><span class="required-star">*</span> Bank and Branch</label
+              >
+              <input
+                type="text"
+                id="input-bankAndBranch"
+                name="bankAndBranch"
+                value=""
+                required
+              />
+              <span class="error-message" id="error-bankAndBranch"></span>
+            </div>
           </div>
-          <div class="input-group" id="group-isPhysicalChallenged">
-            <label for="input-isPhysicalChallenged">Physical challenged category</label>
-            <select id="input-isPhysicalChallenged" name="isPhysicalChallenged">
-              <option value="" disabled selected>Select Physical challenged category</option>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-            </select>
-            <span class="error-message" id="error-isPhysicalChallenged"></span>
+        </section>
+
+        <!-- Section 3: Office Details -->
+        <!-- Details about the employee's current posting, hierarchy position, designation, and recruitment mode -->
+        <section class="form-section">
+          <h2 class="section-header">Office Details</h2>
+          <div class="form-grid">
+            <div class="input-group" id="group-institutionName">
+              <label for="input-institutionName"
+                ><span class="required-star">*</span> Org Unit / Office
+                Name</label
+              >
+              <input
+                list="list-institutionName"
+                id="input-institutionName"
+                name="institutionName"
+                placeholder="Type to search..."
+                required
+              />
+              <datalist id="list-institutionName">
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), PEDDAMADI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (GIRLS), SEETHAMPETA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE MINI GURUKULAM (GIRLS), SEETHAMPETA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE MINI GURUKULAM (GIRLS), KARIGUDA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (PTG BOYS), MALLI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), SEETHAMPETA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), PEDDAMADI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), SEETHAMPETA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (GIRLS), SEETHAMPETA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE CENTRE OF EXCELLENCE (BOYS), MALLI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), BHAMINI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), MELIAPUTI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), P.KONAVALASA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (PTG GIRLS), BHADRAGIRI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE MINI GURUKULAM (GIRLS), PACHIPENT"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (GIRLS), P.KONAVALASA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE UPGRADED RESIDENTIAL JUNIOR COLLEGE (GIRLS), KURUPAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), BHADRAGIRI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), KOMARADA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE SCHOOL OF EXCELLENCE (BOYS), PARVATHIPURAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), BHADRAGIRI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), P.KONAVALASA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (GIRLS), BHADRAGIRI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), ANASABHADRA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), KOTIKAPENTA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), KURUPAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), GLPURAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), CHINTAPALLY"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), KOYYURU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), PEDDABAYALU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), UPPERSILERU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (GIRLS), PADERU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), G.K.VEEDHI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE MINI GURUKULAM, GOMANGI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE MINI GURUKULAM, A.SENIVARAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE MINI GURUKULAM (GIRLS), G.MADUGULA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (GIRLS), G.K.VEEDHI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (PTG BOYS), ARAKU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), G.MADUGULA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), TUMMALAVALASA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (GIRLS), ARAKUALLEY"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), VIZAGATMARIKIVALASA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), ARAKU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), G.MADUGULA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), KOYYURU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), PEDDABAYALU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (GIRLS), ARAKUVALLEY"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (GIRLS), PADERU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE SCHOOL OF EXCELLENCE (GIRLS), VIZAG"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), VIZAGSPORTSSCHOOL"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), ANANTHAGIRI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), ARAKUVALLEY"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), PADERU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), HUKUMPETA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), PEDDABAYALU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), G.MADUGULA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), KOYYURU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), DUMBRIGUDA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), MUNCHIGPUT"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), CHINTAPALLI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), MAREDUMILLI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), ADDATHEEGALA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (GIRLS), RAJAVOMMANGI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (GIRLS), Y.RAMAVARAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE UPGRADED RESIDENTIAL JUNIOR COLLEGE (GIRLS), KUNAVARAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE MINI GURUKULAM (GIRLS), V.R.PURAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (GIRLS), R.C.VARAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (PTG BOYS), MAREDUMILLI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), R.C.VARAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (PTG BOYS), CHINTOOR"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (GIRLS), R.C.VARAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), ADDATEEGALA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), R.C.VARAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), CHINTOOR"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (GIRLS), Y.RAMAVARAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (GIRLS), RAJAVOMMANGI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), MAREDUMILLI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), R.C. VARAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), ADDATHEEGALA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), CHINTOOR"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), RAJAVOMMANGI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (GIRLS), BUTTAYYAGUDEM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), JEELUGUMILLI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), K.R.PURAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), JEELUGUMILLI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), K.R.PURAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (GIRLS), BUTTAYYAGUDEM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), BUTTAYAGUDEM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (GIRLS), VISSANNAPETA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE CENTRE OF EXCELLENCE (GIRLS), VISSANNAPETA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), JAGGAIAPETA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), VUYYURU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), VISSANNAPETA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), NANDIGAMA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), MYLAVARAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), VIJAYAWADA AT KONDAPALLI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE MINI GURUKULAM (GIRLS), G.P.CHERUVU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (PTG BOYS), NAGARJUNASAGAR"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), STUVARTPURAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), VINUKONDA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), GUNTUR"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), CHILAKALURIPETA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), REPALLE"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), PONNURUATTENALI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), NARSARAOPET"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), RENTACHINTALA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), PIDUGURALLA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), VINUKONDA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), KARAMPUDI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), PIDUGURALLA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), TENALI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), NARASARAOPETA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), KARAMPUDI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), BELLAMKONDA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), ADDANKI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), KAREDU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), PARCHUR"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), CHIRALA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), DORNALA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), GIDDALURU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), CHIRALA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), DORNALA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE MINI GURUKULAM (GIRLS), Y.PALEM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (PTG BOYS), Y.PALEM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), Y.PALEM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), DORNALA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), Y.G.PALEM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), KAREDU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), KANIGIRI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), MARKAPUR"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), GIDDALURU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), CHIMAKURTHY"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), KODAVALURU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), KODAVALURU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE MINI GURUKULAM (GIRLS), GUDUR"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (PTG BOYS), CHITTEDU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (PTG BOYS), SOMASILA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), CHITTEDU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), NELLORE"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), GUDUR"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), NAIDUPETA AT GOTTIPROLU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), KOTA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), KAVALI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), RAPUR"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), SARVEPALLI AT NELLORE"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), B.R.PALEM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), VENKATAGIRI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), INDUKURPET"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), KAVALI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), GUDURU AT CHENNURU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), OJILI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE UPGRADED RESIDENTIAL JUNIOR COLLEGE (GIRLS), SRIKALAHASTHI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), RENIGUNTA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (GIRLS), K.V.PALLI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE SCHOOL OF EXCELLENCE (GIRLS), SRIKALAHASTHI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), CHITTOOR"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), TIRUPATHI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), SRIKALAHASTHI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), MADANAPALLI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), PUTTUR"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), BANGARUPALEM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), RAMAKUPPAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), PILERU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), TAMBALAPALLE"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), PUNGANUR"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), B.N.KHANDRIGA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE MINI GURUKULAM (GIRLS), RAILWAYKODURU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (GIRLS), RAYACHOTI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), T.SUNDUPALLI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), PORUMAMILLA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), RAYACHOTI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), PULIVENDALA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), KADAPA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), KADAPA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), MYDUKURU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE MINI GURUKULAM (GIRLS), N.R.KUNTA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (GIRLS), MAHANANDI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), SRISAILAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (PTG GIRLS), MAHANANDI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE SCHOOL OF EXCELLENCE (BOYS), SRISAILAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), SRISAILAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), BAIRLUTY"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), PANYAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), ALURU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), ALLAGADDA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), KURNOOL"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), TUGGALI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE UPGRADED RESIDENTIAL JUNIOR COLLEGE (BOYS), GOLLADODDI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (GIRLS), THANAKALLU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE CENTRE OF EXCELLENCE (GIRLS), THANAKALLU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), ANANTAPUR"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), KADIRI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), RAGULAPADU"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), GORANTLA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), PENUGONDA"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), KALYANADURGAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), B.K.SAMUDRAM"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), KADIRI"
+                ></option>
+                <option
+                  value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), URAVAKONDA"
+                ></option>
+              </datalist>
+              <span class="error-message" id="error-institutionName"></span>
+            </div>
+            <div class="input-group" id="group-postCategory">
+              <label for="input-postCategory"
+                ><span class="required-star">*</span> Post Category</label
+              >
+              <input
+                list="list-postCategory"
+                id="input-postCategory"
+                name="postCategory"
+                placeholder="Type to search..."
+                required
+              />
+              <datalist id="list-postCategory">
+                <option value="Regular"></option>
+                <option value="Contract"></option>
+                <option value="Outsourcing"></option>
+                <option value="Part-time"></option>
+                <option value="Full-time"></option>
+                <option value="Daily Wages"></option>
+                <option value="Nominated Post"></option>
+                <option value="Consultant"></option>
+              </datalist>
+            </div>
+            <div class="input-group" id="group-position">
+              <label for="input-position"
+                ><span class="required-star">*</span> Position</label
+              >
+              <input
+                list="list-position"
+                id="input-position"
+                name="position"
+                placeholder="Type to search..."
+                required
+              />
+              <datalist id="list-position">
+                <option value="Teaching"></option>
+                <option value="Non-Teaching"></option>
+              </datalist>
+            </div>
+            <div class="input-group" id="group-designation">
+              <!-- Options populated dynamically by script.js based on selected Position -->
+              <label for="input-designation"
+                ><span class="required-star">*</span> Designation</label
+              >
+              <select
+                id="input-designation"
+                name="designation"
+                required
+                disabled
+              >
+                <option value="" disabled selected>
+                  Select Position first
+                </option>
+              </select>
+              <span class="error-message" id="error-designation"></span>
+            </div>
+            <div class="input-group" id="group-subject" style="display: none">
+              <label for="input-subject"
+                ><span class="required-star">*</span> Subject</label
+              >
+              <select id="input-subject" name="subject">
+                <option value="" disabled selected>Select Subject</option>
+              </select>
+              <span class="error-message" id="error-subject"></span>
+            </div>
+            <div class="input-group" id="group-modeOfRecruitment">
+              <label for="input-modeOfRecruitment"
+                ><span class="required-star">*</span> Mode of Recruitment</label
+              >
+              <input
+                list="list-modeOfRecruitment"
+                id="input-modeOfRecruitment"
+                name="modeOfRecruitment"
+                placeholder="Type to search..."
+                required
+              />
+              <datalist id="list-modeOfRecruitment">
+                <option value="Direct Recruitment"></option>
+                <option value="Promotion"></option>
+                <option value="Deputation"></option>
+                <option value="Both Direct Recruitment & Promotion"></option>
+                <option value="Both Direct Recruitment & Deputation"></option>
+              </datalist>
+            </div>
+            <div class="input-group" id="group-hoa">
+              <label for="input-hoa"
+                ><span class="required-star">*</span> HoA</label
+              >
+              <input
+                list="list-hoa"
+                id="input-hoa"
+                name="hoa"
+                placeholder="Type to search..."
+                required
+              />
+              <datalist id="list-hoa">
+                <option value="8443001061110002001VN"></option>
+              </datalist>
+              <span class="error-message" id="error-hoa"></span>
+            </div>
           </div>
-          <div class="input-group" id="group-physicalChallengedPercentage" style="display: none;">
-            <label for="input-physicalChallengedPercentage">Percentage (%)</label>
-            <select id="input-physicalChallengedPercentage" name="physicalChallengedPercentage">
-              <option value="" disabled selected>Select percentage...</option>
-            </select>
-            <span class="error-message" id="error-physicalChallengedPercentage"></span>
+        </section>
+
+        <!-- Section 4: Appointment Details -->
+        <section class="form-section">
+          <h2 class="section-header">Appointment Details</h2>
+          <div class="form-grid">
+            <div class="input-group" id="group-appointingAuthority">
+              <label for="input-appointingAuthority"
+                ><span class="required-star">*</span> Appointing
+                Authority</label
+              >
+              <input
+                type="text"
+                id="input-appointingAuthority"
+                name="appointingAuthority"
+                placeholder="Enter Appointing Authority..."
+                required
+              />
+              <span class="error-message" id="error-appointingAuthority"></span>
+            </div>
+            <div class="input-group" id="group-appointingOrderNumber">
+              <label for="input-appointingOrderNumber"
+                ><span class="required-star">*</span> Appointing Order
+                Number</label
+              >
+              <input
+                type="text"
+                id="input-appointingOrderNumber"
+                name="appointingOrderNumber"
+                value=""
+                required
+              />
+              <span
+                class="error-message"
+                id="error-appointingOrderNumber"
+              ></span>
+            </div>
+            <div class="input-group" id="group-appointingOrderDate">
+              <label for="input-appointingOrderDate"
+                ><span class="required-star">*</span> Appointing Order Date
+                (DD/MM/YYYY)</label
+              >
+              <input
+                type="date"
+                id="input-appointingOrderDate"
+                name="appointingOrderDate"
+                value=""
+                required
+              />
+              <span class="error-message" id="error-appointingOrderDate"></span>
+            </div>
           </div>
-          <div class="input-group" id="group-panNumber">
-            <label for="input-panNumber">PAN Number *</label>
-            <input type="text" id="input-panNumber" name="panNumber" value="" required>
-            <span class="error-message" id="error-panNumber"></span>
+        </section>
+        <!-- Section 5: Employment & Pay Details -->
+        <!-- Collects granular pay-scale details with cascading locks and conditionally visible contract inputs -->
+        <section class="form-section">
+          <h2 class="section-header">Employment & Pay Details</h2>
+          <div class="form-grid">
+            <div class="input-group" id="group-employeeCategory">
+              <!-- Filtered based on Post Category selection. Controls visibility of most fields below. -->
+              <label for="input-employeeCategory"
+                ><span class="required-star">*</span> Employee Category</label
+              >
+              <select
+                id="input-employeeCategory"
+                name="employeeCategory"
+                required
+                disabled
+              >
+                <option value="" disabled selected>
+                  Select Post Category first
+                </option>
+              </select>
+              <span class="error-message" id="error-employeeCategory"></span>
+            </div>
+            <div class="input-group" id="group-typeOfPay" style="display: none">
+              <label for="input-typeOfPay"
+                ><span class="required-star">*</span> Type of Pay</label
+              >
+              <select id="input-typeOfPay" name="typeOfPay">
+                <option value="" disabled selected>Select Type of Pay</option>
+                <option value="minimum_time_scale">Minimum Time Scale</option>
+                <option value="consolidated_pay">Consolidated Pay</option>
+              </select>
+              <span class="error-message" id="error-typeOfPay"></span>
+            </div>
+            <div
+              class="input-group"
+              id="group-consolidatedPayAmount"
+              style="display: none"
+            >
+              <label for="input-consolidatedPayAmount"
+                ><span class="required-star">*</span> Consolidated Pay
+                Amount</label
+              >
+              <input
+                type="number"
+                id="input-consolidatedPayAmount"
+                name="consolidatedPayAmount"
+                value=""
+                placeholder="Enter amount..."
+              />
+              <span
+                class="error-message"
+                id="error-consolidatedPayAmount"
+              ></span>
+            </div>
+
+            <div class="input-group" id="group-typeOfScale">
+              <label for="input-typeOfScale"
+                ><span class="required-star">*</span> Type of Scale</label
+              >
+              <select id="input-typeOfScale" name="typeOfScale" required>
+                <option value="" disabled selected>Select Type of Scale</option>
+                <option value="state">State</option>
+                <option value="ugc">UGC</option>
+                <option value="judicial">Judicial</option>
+                <option value="aicte">AICTE</option>
+                <option value="ais_7th_pay">AIS (7TH PAY COMMISSION)</option>
+                <option value="others">Others</option>
+              </select>
+              <span class="error-message" id="error-typeOfScale"></span>
+            </div>
+            <div
+              class="input-group"
+              id="group-typeOfScaleOthers"
+              style="display: none"
+            >
+              <label for="input-typeOfScaleOthers"
+                ><span class="required-star">*</span> Specify Scale</label
+              >
+              <input
+                type="text"
+                id="input-typeOfScaleOthers"
+                name="typeOfScaleOthers"
+                placeholder="Enter scale type..."
+              />
+              <span class="error-message" id="error-typeOfScaleOthers"></span>
+            </div>
+            <div class="input-group" id="group-prcYear">
+              <!-- Toggles the Scale/Basic Pay inputs between custom searchable dropdowns (2022) or number inputs -->
+              <label for="input-prcYear"
+                ><span class="required-star">*</span> PRC Year</label
+              >
+              <select id="input-prcYear" name="prcYear" required>
+                <option value="" disabled selected>Select PRC Year</option>
+                <option value="2022">2022</option>
+                <option value="2015">2015</option>
+                <option value="2010">2010</option>
+                <option value="2005">2005</option>
+              </select>
+              <span class="error-message" id="error-prcYear"></span>
+            </div>
+            <div class="input-group" id="group-scaleOfPay">
+              <!-- Dynamically unlocked via script.js sequence. Populates matching Basic Pay steps upon selection. -->
+              <label for="input-scaleOfPay"
+                ><span class="required-star">*</span> Scale of Pay</label
+              >
+              <input
+                list="list-scaleOfPay"
+                id="input-scaleOfPay-dropdown"
+                name="scaleOfPay"
+                placeholder="Type to search..."
+                required
+              />
+              <datalist id="list-scaleOfPay">
+                <option value="20000 - 61960"></option>
+                <option value="20600 - 63660"></option>
+                <option value="21200 - 65360"></option>
+                <option value="22460 - 72810"></option>
+                <option value="28280 - 89720"></option>
+                <option value="23120 - 74770"></option>
+                <option value="23780 - 76730"></option>
+                <option value="25220 - 80910"></option>
+                <option value="27500 - 87480"></option>
+                <option value="29980 - 94500"></option>
+                <option value="32670 - 101970"></option>
+                <option value="34580 - 107210"></option>
+                <option value="35570 - 109910"></option>
+                <option value="37640 - 115500"></option>
+                <option value="48440 - 137220"></option>
+                <option value="38720 - 118390"></option>
+                <option value="40970 - 124380"></option>
+                <option value="44570 - 127480"></option>
+                <option value="45830 - 130580"></option>
+                <option value="54060 - 140540"></option>
+                <option value="57100 - 147760"></option>
+                <option value="61960 - 151370"></option>
+                <option value="65360 - 154980"></option>
+                <option value="70850 - 158880"></option>
+                <option value="101970 - 174790"></option>
+                <option value="76730 - 162780"></option>
+                <option value="80910 - 166680"></option>
+                <option value="87480 - 170580"></option>
+                <option value="94500 - 170580"></option>
+                <option value="112610 - 174790"></option>
+                <option value="124380 - 179000"></option>
+              </datalist>
+              <input
+                type="text"
+                id="input-scaleOfPay-number"
+                name="scaleOfPay"
+                placeholder="Enter Scale of Pay..."
+                style="display: none"
+                required
+                disabled
+              />
+              <span class="error-message" id="error-scaleOfPay"></span>
+            </div>
+            <div class="input-group" id="group-basicPay">
+              <!-- Limits Basic Pay options to a range based on the user's selected Scale of Pay -->
+              <label for="input-basicPay"
+                ><span class="required-star">*</span> Basic Pay</label
+              >
+              <select
+                id="input-basicPay-dropdown"
+                name="basicPay"
+                required
+                disabled
+              >
+                <option value="" disabled selected>Select Basic Pay</option>
+              </select>
+              <input
+                type="number"
+                id="input-basicPay-number"
+                name="basicPay"
+                placeholder="Enter Basic Pay..."
+                style="display: none"
+                required
+                disabled
+              />
+              <span class="error-message" id="error-basicPay"></span>
+            </div>
+            <div class="input-group" id="group-dearAllowance">
+              <label for="input-dearAllowance"
+                ><span class="required-star">*</span> Dear Allowance (%)</label
+              >
+              <input
+                list="list-dearAllowance"
+                id="input-dearAllowance"
+                name="dearAllowance"
+                placeholder="Type to search..."
+                required
+              />
+              <datalist id="list-dearAllowance">
+                <option value="0"></option>
+                <option value="5.24"></option>
+                <option value="8.908"></option>
+                <option value="12.052"></option>
+                <option value="15.196"></option>
+                <option value="18.34"></option>
+                <option value="22.008"></option>
+                <option value="24.104"></option>
+                <option value="25.676"></option>
+                <option value="27.248"></option>
+                <option value="30.392"></option>
+                <option value="33.936"></option>
+                <option value="8"></option>
+                <option value="12"></option>
+                <option value="154"></option>
+                <option value="189"></option>
+                <option value="164"></option>
+                <option value="31"></option>
+                <option value="46"></option>
+                <option value="115"></option>
+                <option value="249.63"></option>
+                <option value="232.674"></option>
+                <option value="247.036"></option>
+                <option value="196"></option>
+                <option value="71.904"></option>
+                <option value="118.128"></option>
+                <option value="88.168"></option>
+                <option value="63.344"></option>
+                <option value="71.896"></option>
+                <option value="83.032"></option>
+                <option value="05.00"></option>
+                <option value="193.304"></option>
+                <option value="99.304"></option>
+                <option value="99.296"></option>
+                <option value="102.72"></option>
+                <option value="105.288"></option>
+                <option value="107.856"></option>
+                <option value="112.996"></option>
+                <option value="77.896"></option>
+                <option value="34"></option>
+                <option value="0"></option>
+                <option value="133.764"></option>
+                <option value="31.9"></option>
+                <option value="60.288"></option>
+                <option value="42"></option>
+                <option value="11.6"></option>
+                <option value="38"></option>
+                <option value="7.18"></option>
+                <option value="201.558"></option>
+                <option value="203"></option>
+                <option value="53"></option>
+                <option value="212"></option>
+                <option value="55"></option>
+                <option value="26.39"></option>
+                <option value="50"></option>
+                <option value="239"></option>
+                <option value="37.31"></option>
+                <option value="30.03"></option>
+                <option value="221"></option>
+                <option value="230"></option>
+                <option value="58"></option>
+                <option value="55.54"></option>
+                <option value="33.67"></option>
+              </datalist>
+              <span class="error-message" id="error-dearAllowance"></span>
+            </div>
+            <div class="input-group" id="group-ccaLocation">
+              <label for="input-ccaLocation"
+                ><span class="required-star">*</span> CCA Location</label
+              >
+              <input
+                list="list-ccaLocation"
+                id="input-ccaLocation"
+                name="ccaLocation"
+                placeholder="Type to search..."
+                required
+              />
+              <datalist id="list-ccaLocation">
+                <option value="Anantapur"></option>
+                <option value="Chittoor"></option>
+                <option value="Eluru"></option>
+                <option
+                  value="Greater Vijayawada Municipal Corporation"
+                ></option>
+                <option
+                  value="Greater Visakhapatnam Municipal Corporation"
+                ></option>
+                <option value="Guntur"></option>
+                <option value="Kadapa"></option>
+                <option value="Kakinada"></option>
+                <option value="Kurnool"></option>
+                <option value="Nellore"></option>
+                <option value="Not applicable"></option>
+                <option value="Ongole"></option>
+                <option value="Rajahmundry"></option>
+                <option value="Secretariat and HORS Employee"></option>
+                <option value="Tirupati"></option>
+              </datalist>
+              <span class="error-message" id="error-ccaLocation"></span>
+            </div>
+            <div class="input-group" id="group-gpfCpsCategory">
+              <label for="input-gpfCpsCategory"
+                ><span class="required-star">*</span> GPF/CPS Category</label
+              >
+              <input
+                list="list-gpfCpsCategory"
+                id="input-gpfCpsCategory"
+                name="gpfCpsCategory"
+                placeholder="Type to search..."
+                required
+              />
+              <datalist id="list-gpfCpsCategory">
+                <option value="NPS-SAB"></option>
+                <option value="NPS-Govt"></option>
+                <option value="GPF (AG)"></option>
+                <option value="Class-IV GPF"></option>
+                <option value="AIJ GPF"></option>
+                <option value="ZPPF"></option>
+                <option value="GPF Work Charged"></option>
+                <option value="High Court Judges GPF (AG)"></option>
+                <option value="EPF/OWN-PF"></option>
+                <option value="N/A"></option>
+              </datalist>
+              <span class="error-message" id="error-gpfCpsCategory"></span>
+            </div>
+
+            <div class="input-group" id="group-gisSlab">
+              <label for="input-gisSlab"
+                ><span class="required-star">*</span> GIS Slab</label
+              >
+              <input
+                list="list-gisSlab"
+                id="input-gisSlab"
+                name="gisSlab"
+                placeholder="Type to search..."
+                required
+              />
+              <datalist id="list-gisSlab">
+                <option value="0 - Not Applicable"></option>
+                <option value="D - 15"></option>
+                <option value="H - 20"></option>
+                <option value="C - 30"></option>
+                <option value="G - 50"></option>
+                <option value="B - 60"></option>
+                <option value="F - 75"></option>
+                <option value="E - 100"></option>
+                <option value="A - 120"></option>
+              </datalist>
+              <span class="error-message" id="error-gisSlab"></span>
+            </div>
+            <div class="input-group" id="group-hra">
+              <label for="input-hra"
+                ><span class="required-star">*</span> HRA (%)</label
+              >
+              <select id="input-hra" name="hra" required>
+                <option value="" disabled selected>Select HRA (%)</option>
+                <option value="0">0</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="12">12</option>
+                <option value="14.5">14.5</option>
+                <option value="16">16</option>
+                <option value="18">18</option>
+                <option value="20">20</option>
+                <option value="24">24</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="30">30</option>
+              </select>
+              <span class="error-message" id="error-hra"></span>
+            </div>
+            <div
+              class="input-group"
+              id="group-employeeDesignation"
+              style="display: none"
+            >
+              <label for="input-employeeDesignation"
+                ><span class="required-star">*</span> Employee
+                Designation</label
+              >
+              <select
+                id="input-employeeDesignation"
+                name="employeeDesignation"
+                required
+                disabled
+              >
+                <option value="" disabled selected>
+                  Select Position first
+                </option>
+              </select>
+              <span class="error-message" id="error-employeeDesignation"></span>
+            </div>
+            <div class="input-group" id="group-paymentMode">
+              <label for="input-paymentMode"
+                ><span class="required-star">*</span> Select the mode through
+                which the employee’s payment will be processed?</label
+              >
+              <select id="input-paymentMode" name="paymentMode" required>
+                <option value="" disabled selected>Select Payment Mode</option>
+                <option value="organization_own_funds">
+                  Through Organization Own Funds
+                </option>
+                <option value="pd_account">Through PD Account</option>
+                <option value="emrs_account">Through EMRS Account</option>
+              </select>
+              <span class="error-message" id="error-paymentMode"></span>
+            </div>
+            <div class="input-group" id="group-epfNumber" style="display: none">
+              <label for="input-epfNumber"
+                ><span class="required-star">*</span> EPF Number</label
+              >
+              <input
+                type="text"
+                id="input-epfNumber"
+                name="epfNumber"
+                value=""
+                placeholder="Enter EPF Number..."
+              />
+              <span class="error-message" id="error-epfNumber"></span>
+            </div>
+            <div class="input-group" id="group-esiNumber" style="display: none">
+              <label for="input-esiNumber"
+                ><span class="required-star">*</span> ESI Number</label
+              >
+              <input
+                type="text"
+                id="input-esiNumber"
+                name="esiNumber"
+                value=""
+                placeholder="Enter ESI Number..."
+              />
+              <span class="error-message" id="error-esiNumber"></span>
+            </div>
+            <div class="input-group" id="group-apgliNumber">
+              <label for="input-apgliNumber"
+                ><span class="required-star">*</span> APGLI Number</label
+              >
+              <input
+                type="text"
+                id="input-apgliNumber"
+                name="apgliNumber"
+                value=""
+                required
+              />
+              <span class="error-message" id="error-apgliNumber"></span>
+            </div>
           </div>
-          <div class="input-group" id="group-mobileNumber">
-            <label for="input-mobileNumber">Mobile Number *</label>
-            <input type="tel" id="input-mobileNumber" name="mobileNumber" value="" required>
-            <span class="error-message" id="error-mobileNumber"></span>
-          </div>
+        </section>
+
+        <div class="button-container">
+          <button type="submit">Submit and proceed</button>
         </div>
-      </section>
+      </form>
+    </div>
 
-      <!-- Section 2: Bank Details -->
-      <section class="form-section">
-        <h2 class="section-header">Bank Details</h2>
-        <div class="form-grid">
-          <div class="input-group" id="group-bankAccountNumber">
-            <label for="input-bankAccountNumber">Bank Account Number *</label>
-            <input type="text" id="input-bankAccountNumber" name="bankAccountNumber" value="" required>
-            <span class="error-message" id="error-bankAccountNumber"></span>
-          </div>
-          <div class="input-group" id="group-bankIfscCode">
-            <label for="input-bankIfscCode">Bank IFSC Code *</label>
-            <input type="text" id="input-bankIfscCode" name="bankIfscCode" value="" required>
-            <span class="error-message" id="error-bankIfscCode"></span>
-          </div>
-          <div class="input-group" id="group-bankAndBranch">
-            <label for="input-bankAndBranch">Bank and Branch *</label>
-            <input type="text" id="input-bankAndBranch" name="bankAndBranch" value="" required>
-            <span class="error-message" id="error-bankAndBranch"></span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section 3: Office Details -->
-      <section class="form-section">
-        <h2 class="section-header">Office Details</h2>
-        <div class="form-grid">
-          <div class="input-group" id="group-institutionName">
-            <label for="input-institutionName">Org Unit / Office Name *</label>
-            <input list="list-institutionName" id="input-institutionName" name="institutionName"
-              placeholder="Type to search..." required>
-            <datalist id="list-institutionName">
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), PEDDAMADI"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (GIRLS), SEETHAMPETA"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE MINI GURUKULAM (GIRLS), SEETHAMPETA"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE MINI GURUKULAM (GIRLS), KARIGUDA"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (PTG BOYS), MALLI"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), SEETHAMPETA"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), PEDDAMADI"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), SEETHAMPETA"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (GIRLS), SEETHAMPETA"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE CENTRE OF EXCELLENCE (BOYS), MALLI"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), BHAMINI">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), MELIAPUTI">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), P.KONAVALASA"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (PTG GIRLS), BHADRAGIRI"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE MINI GURUKULAM (GIRLS), PACHIPENT"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (GIRLS), P.KONAVALASA"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE UPGRADED RESIDENTIAL JUNIOR COLLEGE (GIRLS), KURUPAM">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), BHADRAGIRI"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), KOMARADA"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE SCHOOL OF EXCELLENCE (BOYS), PARVATHIPURAM"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), BHADRAGIRI"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), P.KONAVALASA"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (GIRLS), BHADRAGIRI"></option>
-              <option
-                value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), ANASABHADRA">
-              </option>
-              <option
-                value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), KOTIKAPENTA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), KURUPAM">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), GLPURAM">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), CHINTAPALLY"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), KOYYURU"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), PEDDABAYALU"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), UPPERSILERU"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (GIRLS), PADERU"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), G.K.VEEDHI">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE MINI GURUKULAM, GOMANGI"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE MINI GURUKULAM, A.SENIVARAM"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE MINI GURUKULAM (GIRLS), G.MADUGULA"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (GIRLS), G.K.VEEDHI"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (PTG BOYS), ARAKU"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), G.MADUGULA"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), TUMMALAVALASA"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (GIRLS), ARAKUALLEY"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), VIZAGATMARIKIVALASA"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), ARAKU"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), G.MADUGULA"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), KOYYURU"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), PEDDABAYALU"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (GIRLS), ARAKUVALLEY"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (GIRLS), PADERU"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE SCHOOL OF EXCELLENCE (GIRLS), VIZAG"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), VIZAGSPORTSSCHOOL"></option>
-              <option
-                value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), ANANTHAGIRI">
-              </option>
-              <option
-                value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), ARAKUVALLEY">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), PADERU">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), HUKUMPETA">
-              </option>
-              <option
-                value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), PEDDABAYALU">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), G.MADUGULA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), KOYYURU">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), DUMBRIGUDA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), MUNCHIGPUT">
-              </option>
-              <option
-                value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), CHINTAPALLI">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), MAREDUMILLI"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), ADDATHEEGALA"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (GIRLS), RAJAVOMMANGI"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (GIRLS), Y.RAMAVARAM">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE UPGRADED RESIDENTIAL JUNIOR COLLEGE (GIRLS), KUNAVARAM">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE MINI GURUKULAM (GIRLS), V.R.PURAM"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (GIRLS), R.C.VARAM"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (PTG BOYS), MAREDUMILLI"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), R.C.VARAM"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (PTG BOYS), CHINTOOR"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (GIRLS), R.C.VARAM"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), ADDATEEGALA"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), R.C.VARAM"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), CHINTOOR"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (GIRLS), Y.RAMAVARAM"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (GIRLS), RAJAVOMMANGI"></option>
-              <option
-                value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), MAREDUMILLI">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), R.C. VARAM">
-              </option>
-              <option
-                value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), ADDATHEEGALA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), CHINTOOR">
-              </option>
-              <option
-                value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), RAJAVOMMANGI">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (GIRLS), BUTTAYYAGUDEM"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), JEELUGUMILLI"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), K.R.PURAM"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), JEELUGUMILLI"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), K.R.PURAM"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (GIRLS), BUTTAYYAGUDEM"></option>
-              <option
-                value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), BUTTAYAGUDEM">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (GIRLS), VISSANNAPETA"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE CENTRE OF EXCELLENCE (GIRLS), VISSANNAPETA"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), JAGGAIAPETA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), VUYYURU">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), VISSANNAPETA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), NANDIGAMA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), MYLAVARAM">
-              </option>
-              <option
-                value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), VIJAYAWADA AT KONDAPALLI">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE MINI GURUKULAM (GIRLS), G.P.CHERUVU"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (PTG BOYS), NAGARJUNASAGAR"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), STUVARTPURAM">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), VINUKONDA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), GUNTUR"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), CHILAKALURIPETA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), REPALLE">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), PONNURUATTENALI">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), NARSARAOPET">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), RENTACHINTALA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), PIDUGURALLA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), VINUKONDA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), KARAMPUDI">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), PIDUGURALLA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), TENALI">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), NARASARAOPETA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), KARAMPUDI">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), BELLAMKONDA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), ADDANKI">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), KAREDU"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), PARCHUR">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), CHIRALA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), DORNALA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), GIDDALURU">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), CHIRALA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), DORNALA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE MINI GURUKULAM (GIRLS), Y.PALEM"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (PTG BOYS), Y.PALEM"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), Y.PALEM"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), DORNALA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), Y.G.PALEM">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), KAREDU">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), KANIGIRI">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), MARKAPUR">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), GIDDALURU">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), CHIMAKURTHY">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), KODAVALURU">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), KODAVALURU">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE MINI GURUKULAM (GIRLS), GUDUR"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (PTG BOYS), CHITTEDU"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (PTG BOYS), SOMASILA"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), CHITTEDU"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), NELLORE">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), GUDUR"></option>
-              <option
-                value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), NAIDUPETA AT GOTTIPROLU">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), KOTA"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), KAVALI"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), RAPUR"></option>
-              <option
-                value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), SARVEPALLI AT NELLORE">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), B.R.PALEM">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), VENKATAGIRI">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), INDUKURPET">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), KAVALI">
-              </option>
-              <option
-                value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), GUDURU AT CHENNURU">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), OJILI">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE UPGRADED RESIDENTIAL JUNIOR COLLEGE (GIRLS), SRIKALAHASTHI">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), RENIGUNTA"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (GIRLS), K.V.PALLI"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE SCHOOL OF EXCELLENCE (GIRLS), SRIKALAHASTHI"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), CHITTOOR">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), TIRUPATHI">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), SRIKALAHASTHI">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), MADANAPALLI">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), PUTTUR"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), BANGARUPALEM">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), RAMAKUPPAM">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), PILERU"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), TAMBALAPALLE">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), PUNGANUR">
-              </option>
-              <option
-                value="ANDHRA PRADESH TRIBAL WELFARE EKLAVYA MODEL RESIDENTIAL SCHOOL (CO-EDUCATION), B.N.KHANDRIGA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE MINI GURUKULAM (GIRLS), RAILWAYKODURU"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (GIRLS), RAYACHOTI"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), T.SUNDUPALLI">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), PORUMAMILLA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), RAYACHOTI">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), PULIVENDALA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), KADAPA"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), KADAPA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), MYDUKURU">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE MINI GURUKULAM (GIRLS), N.R.KUNTA"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (GIRLS), MAHANANDI"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (BOYS), SRISAILAM"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (PTG GIRLS), MAHANANDI"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE SCHOOL OF EXCELLENCE (BOYS), SRISAILAM"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL JUNIOR COLLEGE (BOYS), SRISAILAM"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), BAIRLUTY">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), PANYAM"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), ALURU"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), ALLAGADDA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), KURNOOL">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), TUGGALI">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE UPGRADED RESIDENTIAL JUNIOR COLLEGE (BOYS), GOLLADODDI">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE RESIDENTIAL SCHOOL (GIRLS), THANAKALLU"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE CENTRE OF EXCELLENCE (GIRLS), THANAKALLU"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), ANANTAPUR">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), KADIRI">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), RAGULAPADU">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), GORANTLA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), PENUGONDA">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), KALYANADURGAM">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), B.K.SAMUDRAM">
-              </option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (BOYS), KADIRI"></option>
-              <option value="ANDHRA PRADESH TRIBAL WELFARE HOSTEL CONVERTED RESIDENTIAL SCHOOL (GIRLS), URAVAKONDA">
-              </option>
-            </datalist>
-            <span class="error-message" id="error-institutionName"></span>
-          </div>
-          <div class="input-group" id="group-postCategory">
-            <label for="input-postCategory">Post Category *</label>
-            <input list="list-postCategory" id="input-postCategory" name="postCategory" placeholder="Type to search..."
-              required>
-            <datalist id="list-postCategory">
-              <option value="Regular"></option>
-              <option value="Contract"></option>
-              <option value="Outsourcing"></option>
-              <option value="Part-time"></option>
-              <option value="Full-time"></option>
-              <option value="Daily Wages"></option>
-              <option value="Nominated Post"></option>
-              <option value="Consultant"></option>
-            </datalist>
-          </div>
-          <div class="input-group" id="group-position">
-            <label for="input-position">Position *</label>
-            <input list="list-position" id="input-position" name="position" placeholder="Type to search..." required>
-            <datalist id="list-position">
-              <option value="Teaching"></option>
-              <option value="Non-Teaching"></option>
-            </datalist>
-          </div>
-          <div class="input-group" id="group-designation">
-            <label for="input-designation">Designation *</label>
-            <select id="input-designation" name="designation" required disabled>
-              <option value="" disabled selected>Select Position first</option>
-            </select>
-            <span class="error-message" id="error-designation"></span>
-          </div>
-          <div class="input-group" id="group-subject" style="display: none;">
-            <label for="input-subject">Subject *</label>
-            <select id="input-subject" name="subject">
-              <option value="" disabled selected>Select Subject</option>
-            </select>
-            <span class="error-message" id="error-subject"></span>
-          </div>
-          <div class="input-group" id="group-modeOfRecruitment">
-            <label for="input-modeOfRecruitment">Mode of Recruitment *</label>
-            <input list="list-modeOfRecruitment" id="input-modeOfRecruitment" name="modeOfRecruitment"
-              placeholder="Type to search..." required>
-            <datalist id="list-modeOfRecruitment">
-              <option value="Direct Recruitment"></option>
-              <option value="Promotion"></option>
-              <option value="Deputation"></option>
-              <option value="Both Direct Recruitment & Promotion"></option>
-              <option value="Both Direct Recruitment & Deputation"></option>
-            </datalist>
-          </div>
-          <div class="input-group" id="group-hoa">
-            <label for="input-hoa">HoA *</label>
-            <input list="list-hoa" id="input-hoa" name="hoa" placeholder="Type to search..." required>
-            <datalist id="list-hoa">
-              <option value="8443001061110002001VN"></option>
-            </datalist>
-            <span class="error-message" id="error-hoa"></span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section 4: Appointment Details -->
-      <section class="form-section">
-        <h2 class="section-header">Appointment Details</h2>
-        <div class="form-grid">
-          <div class="input-group" id="group-appointingAuthority">
-            <label for="input-appointingAuthority">Appointing Authority *</label>
-            <input type="text" id="input-appointingAuthority" name="appointingAuthority"
-              placeholder="Enter Appointing Authority..." required>
-            <span class="error-message" id="error-appointingAuthority"></span>
-          </div>
-          <div class="input-group" id="group-appointingOrderNumber">
-            <label for="input-appointingOrderNumber">Appointing Order Number *</label>
-            <input type="text" id="input-appointingOrderNumber" name="appointingOrderNumber" value="" required>
-            <span class="error-message" id="error-appointingOrderNumber"></span>
-          </div>
-          <div class="input-group" id="group-appointingOrderDate">
-            <label for="input-appointingOrderDate">Appointing Order Date (DD/MM/YYYY) *</label>
-            <input type="date" id="input-appointingOrderDate" name="appointingOrderDate" value="" required>
-            <span class="error-message" id="error-appointingOrderDate"></span>
-          </div>
-        </div>
-      </section>
-      <!-- Section 5: Employment & Pay Details -->
-      <section class="form-section">
-        <h2 class="section-header">Employment & Pay Details</h2>
-        <div class="form-grid">
-          <div class="input-group" id="group-employeeCategory">
-            <label for="input-employeeCategory">Employee Category *</label>
-            <select id="input-employeeCategory" name="employeeCategory" required disabled>
-              <option value="" disabled selected>Select Post Category first</option>
-            </select>
-            <span class="error-message" id="error-employeeCategory"></span>
-          </div>
-          <div class="input-group" id="group-typeOfPay" style="display: none;">
-            <label for="input-typeOfPay">Type of Pay *</label>
-            <select id="input-typeOfPay" name="typeOfPay">
-              <option value="" disabled selected>Select Type of Pay</option>
-              <option value="minimum_time_scale">Minimum Time Scale</option>
-              <option value="consolidated_pay">Consolidated Pay</option>
-            </select>
-            <span class="error-message" id="error-typeOfPay"></span>
-          </div>
-          <div class="input-group" id="group-consolidatedPayAmount" style="display: none;">
-            <label for="input-consolidatedPayAmount">Consolidated Pay Amount *</label>
-            <input type="number" id="input-consolidatedPayAmount" name="consolidatedPayAmount" value=""
-              placeholder="Enter amount...">
-            <span class="error-message" id="error-consolidatedPayAmount"></span>
-          </div>
-
-
-          <div class="input-group" id="group-typeOfScale">
-            <label for="input-typeOfScale">Type of Scale *</label>
-            <select id="input-typeOfScale" name="typeOfScale" required>
-              <option value="" disabled selected>Select Type of Scale</option>
-              <option value="state">State</option>
-              <option value="ugc">UGC</option>
-              <option value="judicial">Judicial</option>
-              <option value="aicte">AICTE</option>
-              <option value="ais_7th_pay">AIS (7TH PAY COMMISSION)</option>
-              <option value="others">Others</option>
-            </select>
-            <span class="error-message" id="error-typeOfScale"></span>
-          </div>
-          <div class="input-group" id="group-typeOfScaleOthers" style="display: none;">
-            <label for="input-typeOfScaleOthers">Specify Scale *</label>
-            <input type="text" id="input-typeOfScaleOthers" name="typeOfScaleOthers" placeholder="Enter scale type...">
-            <span class="error-message" id="error-typeOfScaleOthers"></span>
-          </div>
-          <div class="input-group" id="group-prcYear">
-            <label for="input-prcYear">PRC Year *</label>
-            <select id="input-prcYear" name="prcYear" required>
-              <option value="" disabled selected>Select PRC Year</option>
-              <option value="2022">2022</option>
-              <option value="2015">2015</option>
-              <option value="2010">2010</option>
-              <option value="2005">2005</option>
-            </select>
-            <span class="error-message" id="error-prcYear"></span>
-          </div>
-          <div class="input-group" id="group-scaleOfPay">
-            <label for="input-scaleOfPay">Scale of Pay *</label>
-            <input list="list-scaleOfPay" id="input-scaleOfPay-dropdown" name="scaleOfPay" placeholder="Type to search..."
-              required>
-            <datalist id="list-scaleOfPay">
-              <option value="20000 - 61960"></option>
-              <option value="20600 - 63660"></option>
-              <option value="21200 - 65360"></option>
-              <option value="22460 - 72810"></option>
-              <option value="28280 - 89720"></option>
-              <option value="23120 - 74770"></option>
-              <option value="23780 - 76730"></option>
-              <option value="25220 - 80910"></option>
-              <option value="27500 - 87480"></option>
-              <option value="29980 - 94500"></option>
-              <option value="32670 - 101970"></option>
-              <option value="34580 - 107210"></option>
-              <option value="35570 - 109910"></option>
-              <option value="37640 - 115500"></option>
-              <option value="48440 - 137220"></option>
-              <option value="38720 - 118390"></option>
-              <option value="40970 - 124380"></option>
-              <option value="44570 - 127480"></option>
-              <option value="45830 - 130580"></option>
-              <option value="54060 - 140540"></option>
-              <option value="57100 - 147760"></option>
-              <option value="61960 - 151370"></option>
-              <option value="65360 - 154980"></option>
-              <option value="70850 - 158880"></option>
-              <option value="101970 - 174790"></option>
-              <option value="76730 - 162780"></option>
-              <option value="80910 - 166680"></option>
-              <option value="87480 - 170580"></option>
-              <option value="94500 - 170580"></option>
-              <option value="112610 - 174790"></option>
-              <option value="124380 - 179000"></option>
-
-            </datalist>
-            <input type="text" id="input-scaleOfPay-number" name="scaleOfPay" placeholder="Enter Scale of Pay..." style="display: none;" required disabled>
-            <span class="error-message" id="error-scaleOfPay"></span>
-          </div>
-          <div class="input-group" id="group-basicPay">
-            <label for="input-basicPay">Basic Pay *</label>
-            <select id="input-basicPay-dropdown" name="basicPay" required disabled>
-              <option value="" disabled selected>Select Basic Pay</option>
-            </select>
-            <input type="number" id="input-basicPay-number" name="basicPay" placeholder="Enter Basic Pay..." style="display: none;" required disabled>
-            <span class="error-message" id="error-basicPay"></span>
-          </div>
-          <div class="input-group" id="group-dearAllowance">
-            <label for="input-dearAllowance">Dear Allowance (%) *</label>
-            <input list="list-dearAllowance" id="input-dearAllowance" name="dearAllowance"
-              placeholder="Type to search..." required>
-            <datalist id="list-dearAllowance">
-              <option value="0"></option>
-              <option value="5.24"></option>
-              <option value="8.908"></option>
-              <option value="12.052"></option>
-              <option value="15.196"></option>
-              <option value="18.34"></option>
-              <option value="22.008"></option>
-              <option value="24.104"></option>
-              <option value="25.676"></option>
-              <option value="27.248"></option>
-              <option value="30.392"></option>
-              <option value="33.936"></option>
-              <option value="8"></option>
-              <option value="12"></option>
-              <option value="154"></option>
-              <option value="189"></option>
-              <option value="164"></option>
-              <option value="31"></option>
-              <option value="46"></option>
-              <option value="115"></option>
-              <option value="249.63"></option>
-              <option value="232.674"></option>
-              <option value="247.036"></option>
-              <option value="196"></option>
-              <option value="71.904"></option>
-              <option value="118.128"></option>
-              <option value="88.168"></option>
-              <option value="63.344"></option>
-              <option value="71.896"></option>
-              <option value="83.032"></option>
-              <option value="05.00"></option>
-              <option value="193.304"></option>
-              <option value="99.304"></option>
-              <option value="99.296"></option>
-              <option value="102.72"></option>
-              <option value="105.288"></option>
-              <option value="107.856"></option>
-              <option value="112.996"></option>
-              <option value="77.896"></option>
-              <option value="34"></option>
-              <option value="0"></option>
-              <option value="133.764"></option>
-              <option value="31.9"></option>
-              <option value="60.288"></option>
-              <option value="42"></option>
-              <option value="11.6"></option>
-              <option value="38"></option>
-              <option value="7.18"></option>
-              <option value="201.558"></option>
-              <option value="203"></option>
-              <option value="53"></option>
-              <option value="212"></option>
-              <option value="55"></option>
-              <option value="26.39"></option>
-              <option value="50"></option>
-              <option value="239"></option>
-              <option value="37.31"></option>
-              <option value="30.03"></option>
-              <option value="221"></option>
-              <option value="230"></option>
-              <option value="58"></option>
-              <option value="55.54"></option>
-              <option value="33.67"></option>
-            </datalist>
-            <span class="error-message" id="error-dearAllowance"></span>
-          </div>
-          <div class="input-group" id="group-ccaLocation">
-            <label for="input-ccaLocation">CCA Location *</label>
-            <input list="list-ccaLocation" id="input-ccaLocation" name="ccaLocation" placeholder="Type to search..."
-              required>
-            <datalist id="list-ccaLocation">
-              <option value="Anantapur"></option>
-              <option value="Chittoor"></option>
-              <option value="Eluru"></option>
-              <option value="Greater Vijayawada Municipal Corporation"></option>
-              <option value="Greater Visakhapatnam Municipal Corporation"></option>
-              <option value="Guntur"></option>
-              <option value="Kadapa"></option>
-              <option value="Kakinada"></option>
-              <option value="Kurnool"></option>
-              <option value="Nellore"></option>
-              <option value="Not applicable"></option>
-              <option value="Ongole"></option>
-              <option value="Rajahmundry"></option>
-              <option value="Secretariat and HORS Employee"></option>
-              <option value="Tirupati"></option>
-            </datalist>
-            <span class="error-message" id="error-ccaLocation"></span>
-          </div>
-          <div class="input-group" id="group-gpfCpsCategory">
-            <label for="input-gpfCpsCategory">GPF/CPS Category *</label>
-            <input list="list-gpfCpsCategory" id="input-gpfCpsCategory" name="gpfCpsCategory"
-              placeholder="Type to search..." required>
-            <datalist id="list-gpfCpsCategory">
-              <option value="NPS-SAB"></option>
-              <option value="NPS-Govt"></option>
-              <option value="GPF (AG)"></option>
-              <option value="Class-IV GPF"></option>
-              <option value="AIJ GPF"></option>
-              <option value="ZPPF"></option>
-              <option value="GPF Work Charged"></option>
-              <option value="High Court Judges GPF (AG)"></option>
-              <option value="EPF/OWN-PF"></option>
-              <option value="N/A"></option>
-            </datalist>
-            <span class="error-message" id="error-gpfCpsCategory"></span>
-          </div>
-
-          <div class="input-group" id="group-gisSlab">
-            <label for="input-gisSlab">GIS Slab *</label>
-            <input list="list-gisSlab" id="input-gisSlab" name="gisSlab" placeholder="Type to search..." required>
-            <datalist id="list-gisSlab">
-              <option value="0 - Not Applicable"></option>
-              <option value="D - 15"></option>
-              <option value="H - 20"></option>
-              <option value="C - 30"></option>
-              <option value="G - 50"></option>
-              <option value="B - 60"></option>
-              <option value="F - 75"></option>
-              <option value="E - 100"></option>
-              <option value="A - 120"></option>
-
-            </datalist>
-            <span class="error-message" id="error-gisSlab"></span>
-          </div>
-          <div class="input-group" id="group-hra">
-            <label for="input-hra">HRA (%) *</label>
-            <select id="input-hra" name="hra" required>
-              <option value="" disabled selected>Select HRA (%)</option>
-              <option value="0">0</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-              <option value="12">12</option>
-              <option value="14.5">14.5</option>
-              <option value="16">16</option>
-              <option value="18">18</option>
-              <option value="20">20</option>
-              <option value="24">24</option>
-              <option value="27">27</option>
-              <option value="28">28</option>
-              <option value="30">30</option>
-            </select>
-            <span class="error-message" id="error-hra"></span>
-          </div>
-          <div class="input-group" id="group-employeeDesignation" style="display: none;">
-            <label for="input-employeeDesignation">Employee Designation *</label>
-            <select id="input-employeeDesignation" name="employeeDesignation" required disabled>
-              <option value="" disabled selected>Select Position first</option>
-            </select>
-            <span class="error-message" id="error-employeeDesignation"></span>
-          </div>
-          <div class="input-group" id="group-paymentMode">
-            <label for="input-paymentMode">Select the mode through which the employee’s payment will be processed?
-              *</label>
-            <select id="input-paymentMode" name="paymentMode" required>
-              <option value="" disabled selected>Select Payment Mode</option>
-              <option value="organization_own_funds">Through Organization Own Funds</option>
-              <option value="pd_account">Through PD Account</option>
-              <option value="emrs_account">Through EMRS Account</option>
-            </select>
-            <span class="error-message" id="error-paymentMode"></span>
-          </div>
-          <div class="input-group" id="group-epfNumber" style="display: none;">
-            <label for="input-epfNumber">EPF Number *</label>
-            <input type="text" id="input-epfNumber" name="epfNumber" value="" placeholder="Enter EPF Number...">
-            <span class="error-message" id="error-epfNumber"></span>
-          </div>
-          <div class="input-group" id="group-esiNumber" style="display: none;">
-            <label for="input-esiNumber">ESI Number *</label>
-            <input type="text" id="input-esiNumber" name="esiNumber" value="" placeholder="Enter ESI Number...">
-            <span class="error-message" id="error-esiNumber"></span>
-          </div>
-          <div class="input-group" id="group-apgliNumber">
-            <label for="input-apgliNumber">APGLI Number</label>
-            <input type="text" id="input-apgliNumber" name="apgliNumber" value="" required>
-            <span class="error-message" id="error-apgliNumber"></span>
-          </div>
-        </div>
-      </section>
-
-      <div class="button-container">
-        <button type="submit">Submit and proceed</button>
-      </div>
-    </form>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
