@@ -653,7 +653,6 @@ const nonTeachingDesignations = [
   "Watch_Women-Men",
   "Sanitary_Worker",
   "Parttime_Docter",
-  "Junior_Lecturer",
   "Secretary",
   "Joint_Secretary",
   "Deputy_Secretary",

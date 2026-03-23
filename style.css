@@ -309,6 +309,13 @@ button[type="submit"]:active {
   font-size: 20px;
 }
 
+/* Specific sizing for long institution names to prevent overflow */
+#group-institutionName .select-toggle,
+#group-institutionName .option-item,
+#group-institutionName .search-input {
+  font-size: 14px;
+}
+
 /* Custom Scrollbar */
 .options-list::-webkit-scrollbar {
   width: 6px;
@@ -372,6 +379,10 @@ button[type="submit"]:active {
   color: red;
   font-size: 12px;
   margin-top: 4px;
+}
+
+input[type="date"] {
+  text-transform: uppercase;
 }
 
 .hidden {
