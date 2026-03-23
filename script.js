@@ -158,6 +158,51 @@ const educationOptions = [
   { label: "Post-Doctoral", value: "postdoc" },
 ];
 
+// --- UGC Pay Scale Tables ---
+const ugcData = {
+  "2006": {
+    "15600-39100+AGP 5400": [15600, 16250, 17610, 18320, 19050, 19810, 20590, 21390, 21920, 22220, 22830, 23070, 23140, 23950, 24850, 25780, 26740, 27730, 28750, 28830, 29800, 30060, 30570, 30880, 31990, 33130, 33960, 34310, 35520, 36770, 38060, 39100],
+    "15600-39100+AGP 6000": [15600, 16250, 17610, 18320, 19050, 19810, 20590, 21390, 22520, 23410, 24330, 25270, 26240, 27040, 28070, 29130, 30220, 31340, 32490, 33680, 34900, 36160, 37460, 38800, 39100],
+    "15600-39100+AGP 7000": [15600, 16280, 17700, 18450, 19220, 20010, 20820, 21660, 22520, 23410, 24330, 25270, 26240, 27040, 28070, 29130, 30220, 31340, 32490, 33680, 34900, 36160, 37460, 38800, 39100],
+    "15600-39100+AGP 8000": [15600, 16310, 17800, 18580, 19380, 20210, 21060, 21940, 22840, 23770, 24730, 25720, 26740, 27790, 28870, 29980, 31120, 32300, 33510, 34760, 36050, 37380, 38750, 39100],
+    "37400-67000+AGP 9000": [37400, 38800, 41720, 43250, 44820, 46440, 48110, 49830, 51600, 51655, 53420, 55300, 57230, 59220, 61270, 63380, 63500, 65560, 67000],
+    "37400-67000+AGP 10000": [37400, 38830, 41810, 43370, 44980, 46630, 48330, 50080, 51890, 53750, 55670, 57640, 58200, 59670, 61270, 61760, 63570, 63640, 63920, 66140, 67000]
+  },
+  "2016": {
+    "57700-182400": [57700, 59400, 61200, 63000, 64900, 66800, 68800, 70900, 73000, 75200, 77500, 79800, 82200, 84700, 87200, 89800, 92500, 95300, 98200, 101100, 104100, 107200, 110400, 113700, 117100, 120600, 124200, 127900, 131700, 135700, 139800, 144000, 148300, 152700, 157300, 162000, 166900, 171900, 177100, 182400],
+    "68900-205500": [68900, 71000, 73100, 75300, 77600, 79900, 82300, 84800, 87300, 89900, 92600, 95400, 98300, 101200, 104200, 107300, 110500, 113800, 117200, 120700, 124300, 128000, 131800, 135800, 139900, 144100, 148400, 152900, 157500, 162200, 167100, 172100, 177300, 182600, 188100, 193700, 199500, 205500],
+    "79800-211500": [79800, 82200, 84700, 87200, 89800, 92500, 95300, 98200, 101100, 104100, 107200, 110400, 113700, 117100, 120600, 124200, 127900, 131700, 135700, 139800, 144000, 148300, 152700, 157300, 162000, 166900, 171900, 177100, 182400, 187900, 193500, 199300, 205300, 211500],
+    "131400-217100": [131400, 135300, 139400, 143600, 147900, 152300, 156900, 161600, 166400, 171400, 176500, 181800, 187300, 192900, 198700, 204700, 210800, 217100],
+    "144200-218200": [144200, 148500, 153000, 157600, 162300, 167200, 172200, 177400, 182700, 188200, 193800, 199600, 205600, 211800, 218200],
+    "182200-224100": [182200, 187700, 193300, 199100, 205100, 211300, 217600, 224100]
+  }
+};
+
+// --- AIS (7TH PAY COMMISSION) Pay Scale Tables ---
+const aisData = {
+  "2016": {
+    "56100-177500": [56100, 57800, 59500, 61300, 63100, 65000, 67000, 69000, 71100, 73200, 75400, 77700, 80000, 82400, 84900, 87400, 90000, 92700, 95500, 98400, 101400, 104400, 107500, 110700, 114000, 117400, 120900, 124500, 128200, 132000, 136000, 140100, 144300, 148600, 153100, 157700, 162400, 167300, 172300, 177500],
+    "67700-208700": [67700, 69700, 71800, 74000, 76200, 78500, 80900, 83300, 85800, 88400, 91100, 93800, 96600, 99500, 102500, 105600, 108800, 112100, 115500, 119000, 122600, 126300, 130100, 134000, 138000, 142100, 146400, 150800, 155300, 160000, 164800, 169700, 174800, 180000, 185400, 191000, 196700, 202600, 208700],
+    "78800-209200": [78800, 81200, 83600, 86100, 88700, 91400, 94100, 96900, 99800, 102800, 105900, 109100, 112400, 115800, 119300, 122900, 126600, 130400, 134300, 138300, 142400, 146700, 151100, 155600, 160300, 165100, 170100, 175200, 180500, 185900, 191500, 197200, 203100, 209200],
+    "123100-215900": [123100, 126800, 130600, 134500, 138500, 142700, 147000, 151400, 155900, 160600, 165400, 170400, 175500, 180800, 186200, 191800],
+    "131100-216600": [131100, 135000, 139100, 143300, 147600, 152000, 156600, 161300, 166100, 171100, 176200, 181500, 186900, 192500, 198300, 204200, 210300, 216600],
+    "144200-218200": [144200, 148500, 153000, 157600, 162300, 167200, 172200, 177400, 182700, 188200, 193800, 199600, 205600, 211800, 218200],
+    "182200-224100": [182200, 187700, 193300, 199100, 205100, 211300, 217600, 224100],
+    "205400-224400": [205400, 211600, 217900, 224400],
+    "225000": [225000]
+  }
+};
+const stateScales2022 = [
+  "20000 - 61960", "20600 - 63660", "21200 - 65360", "22460 - 72810",
+  "28280 - 89720", "23120 - 74770", "23780 - 76730", "25220 - 80910",
+  "27500 - 87480", "29980 - 94500", "32670 - 101970", "34580 - 107210",
+  "35570 - 109910", "37640 - 115500", "48440 - 137220", "38720 - 118390",
+  "40970 - 124380", "44570 - 127480", "45830 - 130580", "54060 - 140540",
+  "57100 - 147760", "61960 - 151370", "65360 - 154980", "70850 - 158880",
+  "101970 - 174790", "76730 - 162780", "80910 - 166680", "87480 - 170580",
+  "94500 - 170580", "112610 - 174790", "124380 - 179000"
+];
+
 // ============================================================================
 // STATE & VALIDATION ENGINE
 // ============================================================================
@@ -880,6 +925,62 @@ function updateDesignationOptions(position) {
 }
 
 /**
+ * Updates the PRC Year dropdown based on Type of Scale.
+ */
+function updatePrcYearOptions(scaleType) {
+  const prcSelect = document.getElementById("input-prcYear");
+  if (!prcSelect) return;
+
+  prcSelect.innerHTML = '<option value="" disabled selected>Select PRC Year</option>';
+  let years = [];
+  if (scaleType === 'ugc') {
+    years = ["2016", "2006"];
+  } else if (scaleType === 'ais_7th_pay') {
+    years = ["2016"];
+  } else if (scaleType === 'state') {
+    years = ["2022", "2015", "2010", "2005"];
+  } else {
+    years = ["2022", "2016", "2015", "2010", "2006", "2005"];
+  }
+
+  years.forEach(y => {
+    const opt = document.createElement("option");
+    opt.value = y;
+    opt.textContent = y;
+    prcSelect.appendChild(opt);
+  });
+
+  prcSelect.value = "";
+  formData.prcYear = "";
+  handleInputChange("prcYear", "", prcSelect);
+}
+
+/**
+ * Populates the hidden datalist for Scale of Pay which drives the custom dropdown options
+ */
+function populateScaleOfPayDatalist(scaleType, year) {
+  const dataList = document.getElementById("list-scaleOfPay");
+  if (!dataList) return;
+
+  dataList.innerHTML = "";
+  let scales = [];
+
+  if (scaleType === "ugc" && ugcData[year]) {
+    scales = Object.keys(ugcData[year]);
+  } else if (scaleType === "ais_7th_pay" && aisData[year]) {
+    scales = Object.keys(aisData[year]);
+  } else if (scaleType === "state" && year === "2022") {
+    scales = stateScales2022;
+  }
+
+  scales.forEach(s => {
+    const opt = document.createElement("option");
+    opt.value = s;
+    dataList.appendChild(opt);
+  });
+}
+
+/**
  * Main handler triggered whenever an input value changes.
  * Handles input sanitization (parsing rules), error clearing, and trigger-dependent field updates.
  * @param {string} name - The field name being changed
@@ -922,9 +1023,9 @@ function handleInputChange(name, value, inputElement) {
   if (name === "basicPay") {
     value = value.replace(/\D/g, "");
   }
-  // Scale of Pay: Numbers, spaces, and hyphens
+  // Scale of Pay: Numbers, spaces, hyphens, plus sign, and letters (for UGC AGP)
   if (name === "scaleOfPay") {
-    value = value.replace(/[^\d\s\-]/g, "");
+    value = value.replace(/[^\d\s\-\+A-Za-z]/g, "");
   }
   if (name === "bankIfscCode") {
     value = value
@@ -996,6 +1097,7 @@ function handleInputChange(name, value, inputElement) {
   // Toggle the "Others" scale field based on Type of Scale
   if (name === "typeOfScale") {
     updateVisibility("typeOfScaleOthers", value === "others");
+    updatePrcYearOptions(value);
   }
 
   // Employment category logic
@@ -1168,29 +1270,51 @@ function handleInputChange(name, value, inputElement) {
         "124380 - 179000": "200050",
       };
 
-      const startVal = value ? value.split(" ")[0] : "";
-      const startIndex = payValues.indexOf(startVal);
-
       const wrapper = basicPaySelect.previousElementSibling;
       const isCustomDropdown =
         wrapper && wrapper.classList.contains("custom-dropdown");
 
-      if (startIndex !== -1) {
-        let optionsHtml =
-          '<option value="" disabled selected>Select Basic Pay</option>';
+      let optionsHtml =
+        '<option value="" disabled selected>Select Basic Pay</option>';
+      let foundValidScale = false;
+
+      if (formData.typeOfScale === "ugc" && formData.prcYear && ugcData[formData.prcYear] && ugcData[formData.prcYear][value]) {
+        const paySteps = ugcData[formData.prcYear][value];
         optionsHtml += '<option value="0">0</option>';
-
-        let endIndex = payValues.length;
-        if (scaleMaxLimits[value]) {
-          const maxValIndex = payValues.indexOf(scaleMaxLimits[value]);
-          if (maxValIndex !== -1) {
-            endIndex = maxValIndex + 1;
-          }
-        }
-
-        payValues.slice(startIndex, endIndex).forEach((val) => {
-          optionsHtml += `<option value="${val}">${val}</option>`;
+        paySteps.forEach(step => {
+          optionsHtml += `<option value="${step}">${step}</option>`;
         });
+        foundValidScale = true;
+      } else if (formData.typeOfScale === "ais_7th_pay" && formData.prcYear && aisData[formData.prcYear] && aisData[formData.prcYear][value]) {
+        const paySteps = aisData[formData.prcYear][value];
+        optionsHtml += '<option value="0">0</option>';
+        paySteps.forEach(step => {
+          optionsHtml += `<option value="${step}">${step}</option>`;
+        });
+        foundValidScale = true;
+      } else {
+        const startVal = value ? value.split(" ")[0] : "";
+        const startIndex = payValues.indexOf(startVal);
+
+        if (startIndex !== -1) {
+          foundValidScale = true;
+          optionsHtml += '<option value="0">0</option>';
+
+          let endIndex = payValues.length;
+          if (scaleMaxLimits[value]) {
+            const maxValIndex = payValues.indexOf(scaleMaxLimits[value]);
+            if (maxValIndex !== -1) {
+              endIndex = maxValIndex + 1;
+            }
+          }
+
+          payValues.slice(startIndex, endIndex).forEach((val) => {
+            optionsHtml += `<option value="${val}">${val}</option>`;
+          });
+        }
+      }
+
+      if (foundValidScale) {
         basicPaySelect.innerHTML = optionsHtml;
         basicPaySelect.disabled = false; // Enable when valid scale is selected
         if (isCustomDropdown) wrapper.classList.remove("disabled");
@@ -1213,8 +1337,10 @@ function handleInputChange(name, value, inputElement) {
   }
 
   // Dynamic UI updates based on PRC Year
-  // Ensure that 'Scale of Pay' and 'Basic Pay' show as dropdowns for 2022, but number inputs otherwise.
+  // Ensure that 'Scale of Pay' and 'Basic Pay' show as dropdowns for supported scales.
   if (name === "prcYear") {
+    populateScaleOfPayDatalist(formData.typeOfScale, value);
+
     const scaleDropdownInput = document.getElementById(
       "input-scaleOfPay-dropdown",
     );
@@ -1231,7 +1357,11 @@ function handleInputChange(name, value, inputElement) {
       : null;
     const basicNumberInput = document.getElementById("input-basicPay-number");
 
-    if (value === "2022") {
+    const isDropdownSupported = value === "2022" || 
+      (formData.typeOfScale === "ugc" && (value === "2006" || value === "2016")) ||
+      (formData.typeOfScale === "ais_7th_pay" && value === "2016");
+
+    if (isDropdownSupported) {
       if (scaleDropdownWrapper) scaleDropdownWrapper.style.display = "";
       if (scaleNumberInput) scaleNumberInput.style.display = "none";
 
