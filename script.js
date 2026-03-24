@@ -1231,6 +1231,10 @@ function updatePrcYearOptions(scaleType) {
   const prcSelect = document.getElementById("input-prcYear");
   if (!prcSelect) return;
 
+  const wrapper = prcSelect.previousElementSibling;
+  const isCustomDropdown =
+    wrapper && wrapper.classList.contains("custom-dropdown");
+
   prcSelect.innerHTML =
     '<option value="" disabled selected>Select PRC Year</option>';
   let years = [];
@@ -1254,6 +1258,35 @@ function updatePrcYearOptions(scaleType) {
   prcSelect.value = "";
   formData.prcYear = "";
   handleInputChange("prcYear", "", prcSelect);
+
+  // Sync custom dropdown logic so the visual UI is rebuilt
+  if (isCustomDropdown) {
+    const displayText = wrapper.querySelector(".display-text");
+    if (displayText) displayText.textContent = "Select PRC Year";
+
+    const list = wrapper.querySelector(".options-list");
+    if (list) {
+      // Retain the search box if it exists by only clearing option-items
+      const searchWrapper = list.querySelector(".search-wrapper");
+      list.innerHTML = "";
+      if (searchWrapper) list.appendChild(searchWrapper);
+
+      years.forEach((y) => {
+        const li = document.createElement("li");
+        li.className = "option-item";
+        li.textContent = y;
+        li.addEventListener("click", (e) => {
+          e.stopPropagation();
+          prcSelect.value = y;
+          formData.prcYear = y;
+          if (displayText) displayText.textContent = y;
+          handleInputChange("prcYear", y, prcSelect);
+          wrapper.classList.remove("open");
+        });
+        list.appendChild(li);
+      });
+    }
+  }
 }
 
 /**
@@ -1294,6 +1327,10 @@ function handleInputChange(name, value, inputElement) {
   // Aadhaar: Only digits, max 12
   if (name === "aadhaarSearch" || name === "aadhaarNumber") {
     value = value.replace(/\D/g, "").slice(0, 12);
+  }
+  // PRC Year: Only digits, max 4
+  if (name === "prcYear") {
+    value = value.replace(/\D/g, "").slice(0, 4);
   }
   // Mobile: Only digits, max 10
   if (name === "mobileNumber") {
@@ -1399,45 +1436,71 @@ function handleInputChange(name, value, inputElement) {
   if (name === "typeOfScale") {
     updateVisibility("typeOfScaleOthers", value === "others");
 
-    // state, ugc, and ais_7th_pay have rigidly defined PRC years.
-    // Judicial, AICTE, and Others do NOT have PRC years.
-    const hasPrcYear = ["state", "ugc", "ais_7th_pay"].includes(value);
+    const prcDropdownSelect = document.getElementById("input-prcYear");
+    const prcDropdownWrapper =
+      prcDropdownSelect && prcDropdownSelect.previousElementSibling
+        ? prcDropdownSelect.previousElementSibling
+        : null;
+    const prcNumberInput = document.getElementById("input-prcYear-number");
+
+    const showsDropdownPrc = ["state", "ugc", "ais_7th_pay"].includes(value);
+    const showsManualPrc = ["judicial", "aicte"].includes(value);
+    const hasPrcYear = showsDropdownPrc || showsManualPrc;
+
     updateVisibility("prcYear", hasPrcYear);
 
-    if (hasPrcYear) {
-      updatePrcYearOptions(value);
-    } else {
-      // Forcefully render manual inputs for Scale of Pay / Basic Pay
-      const scaleDropdownInput = document.getElementById(
-        "input-scaleOfPay-dropdown",
-      );
-      const scaleDropdownWrapper = scaleDropdownInput
+    // Forces immediate Scale/Basic Pay manual input display for manual scales
+    const scaleDropdownInput = document.getElementById(
+      "input-scaleOfPay-dropdown",
+    );
+    const scaleDropdownWrapper =
+      scaleDropdownInput && scaleDropdownInput.previousElementSibling
         ? scaleDropdownInput.previousElementSibling
         : null;
-      const scaleNumberInput = document.getElementById(
-        "input-scaleOfPay-number",
-      );
+    const scaleNumberInput = document.getElementById("input-scaleOfPay-number");
 
-      const basicDropdownInput = document.getElementById(
-        "input-basicPay-dropdown",
-      );
-      const basicDropdownWrapper = basicDropdownInput
+    const basicDropdownInput = document.getElementById(
+      "input-basicPay-dropdown",
+    );
+    const basicDropdownWrapper =
+      basicDropdownInput && basicDropdownInput.previousElementSibling
         ? basicDropdownInput.previousElementSibling
         : null;
-      const basicNumberInput = document.getElementById("input-basicPay-number");
+    const basicNumberInput = document.getElementById("input-basicPay-number");
 
+    if (showsDropdownPrc) {
+      if (prcDropdownWrapper) prcDropdownWrapper.style.display = "";
+      if (prcNumberInput) prcNumberInput.style.display = "none";
+      if (prcNumberInput) prcNumberInput.disabled = true;
+      if (prcDropdownSelect) prcDropdownSelect.disabled = false;
+      updatePrcYearOptions(value);
+    } else if (showsManualPrc) {
+      if (prcDropdownWrapper) prcDropdownWrapper.style.display = "none";
+      if (prcNumberInput) prcNumberInput.style.display = "";
+      if (prcNumberInput) prcNumberInput.disabled = false;
+      if (prcDropdownSelect) prcDropdownSelect.disabled = true;
+
+      // Force Scale/Basic to manual
       if (scaleDropdownWrapper) scaleDropdownWrapper.style.display = "none";
       if (scaleNumberInput) scaleNumberInput.style.display = "";
-
       if (basicDropdownWrapper) basicDropdownWrapper.style.display = "none";
       if (basicNumberInput) basicNumberInput.style.display = "";
 
-      // Clear the previously selected invalid values
+      // Reset values
+      formData.prcYear = "";
       formData.scaleOfPay = "";
       formData.basicPay = "";
-      if (scaleDropdownInput) scaleDropdownInput.value = "";
+      if (prcNumberInput) prcNumberInput.value = "";
       if (scaleNumberInput) scaleNumberInput.value = "";
-      if (basicDropdownInput) basicDropdownInput.value = "";
+      if (basicNumberInput) basicNumberInput.value = "";
+    } else {
+      // Clear the previously selected invalid values
+      formData.prcYear = "";
+      formData.scaleOfPay = "";
+      formData.basicPay = "";
+      if (prcDropdownSelect) prcDropdownSelect.value = "";
+      if (prcNumberInput) prcNumberInput.value = "";
+      if (scaleNumberInput) scaleNumberInput.value = "";
       if (basicNumberInput) basicNumberInput.value = "";
     }
   }
